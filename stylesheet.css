@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'poppins', sans-serif:
+    font-family: 'poppins', sans-serif;
 }
 
 body {
@@ -137,7 +137,7 @@ body {
     animation: slideTop 1s ease forwards;
     animation-delay: 2s;
     box-shadow: 0 0 5px #0ef,
-    0 0 5px #0ef;
+        0 0 5px #0ef;
     color: #fff;
     background-color: #0ef;
     text-decoration: none;
@@ -203,6 +203,7 @@ body {
     font-size: 50px;
     text-align: center;
 }
+
 .sub-title span {
     color: #0ef;
 }
@@ -282,14 +283,17 @@ body {
 }
 
 .progress-line.html span {
-    width: 70%;
+    width: 60%;
 }
+
 .progress-line.javascript span {
     width: 40%;
 }
+
 .progress-line.css span {
-    width: 60%;
+    width: 50%;
 }
+
 .progress-line.python span {
     width: 80%;
 }
@@ -308,23 +312,184 @@ body {
 }
 
 .progress-line.html span::after {
-    content: 90%;
+    content: 60%;
 }
+
 .progress-line.javascript span::after {
     content: 50%;
 }
+
 .progress-line.css span::after {
     content: 40%;
 }
+
 .progress-line.python span::after {
     content: 80%;
 }
+
+.progress-line span::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 7px solid transparent;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-top-color: #000;
+    top: -10px;
+    right: 0px;
+    animation: showText 0.5s 1.5s linear forwards;
+    opacity: 0;
+}
+
+@keyframes showText {
+    100% {
+        opacity: 1;
+    }
+}
+
+.radial-bars {
+    width: 100%;
+    display: flex;
+    height: 170px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.radial-bars .radial-bar {
+    width: 50%;
+    height: 170px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.radial-bars .radial-bar svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    width: 120px;
+    height: 160px;
+}
+
+.radial-bars .radial-bar .progress-bar {
+    stroke-width: 10;
+    stop-color: black;
+    fill: transparent;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+    stroke-linecap: round;
+    animation: animate-bar 1s linear forwards;
+}
+
+@keyframes animate-bar {
+    100% {
+        stroke-dashoffset: -1;
+    }
+}
+
+.path {
+    stroke-width: 10;
+    stroke: #0ef;
+    fill: transparent;
+    stroke-dasharray: 502;
+    stroke-dashoffset: 502;
+    stroke-linecap: round;
+}
+
+.path1 {
+    animation: animate-path1 1s 1s linear forwards;
+}
+
+.path2 {
+    animation: animate-path2 1s 1s linear forwards;
+}
+
+.path3 {
+    animation: animate-path3 1s 1s linear forwards;
+}
+
+.path4 {
+    animation: animate-path4 1s 1s linear forwards;
+}
+
+@keyframes animate-path1 {
+    100% {
+        stroke-dashoffset: 50;
+    }
+}
+
+@keyframes animate-path2 {
+    100% {
+        stroke-dashoffset: 175;
+    }
+}
+
+@keyframes animate-path3 {
+    100% {
+        stroke-dashoffset: 125;
+    }
+}
+
+@keyframes animate-path4 {
+    100% {
+        stroke-dashoffset: 75;
+    }
+}
+
+.radial-bar .percentages {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 17px;
+    font-weight: 500;
+    animation: showText 0.5s 1s linear forwards;
+    opacity: 0;
+}
+
+.radial-bar .text {
+    width: 100;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50px);
+    font-size: 17px;
+    font-weight: 500;
+    animation: showText 0.5s 1s linear forwards;
+    opacity: 0;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns */
+    gap: 30px;
+    /* Gap between columns */
+}
+
+.container1 {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #01152c;
+}
+
+.heading,
+.heading1 {
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+
 
 @keyframes slideRight {
     0% {
         transform: translateX(-100px);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0px);
         opacity: 1;
@@ -336,6 +501,7 @@ body {
         transform: translateX(100px);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0px);
         opacity: 1;
@@ -347,6 +513,7 @@ body {
         transform: translateY(100px);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0px);
         opacity: 1;
@@ -358,6 +525,7 @@ body {
         transform: translateY(-100px);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0px);
         opacity: 1;
