@@ -57,7 +57,7 @@ body {
     width: 100%;
     justify-content: space-between;
     height: 100vh;
-    background: url(SayaliG.png) no-repeat;
+    background: url(file:///Users/sayaligedam/Downloads/SayaliG.png) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -415,7 +415,7 @@ body {
 
 @keyframes animate-path1 {
     100% {
-        stroke-dashoffset: 50;
+        stroke-dashoffset: 70;
     }
 }
 
@@ -481,6 +481,9 @@ body {
     font-size: 28px;
     margin-bottom: 15px;
 }
+
+/* Add your styles for the progress bars and other content here */
+
 
 
 
