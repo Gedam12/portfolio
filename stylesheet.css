@@ -57,7 +57,7 @@ body {
     width: 100%;
     justify-content: space-between;
     height: 100vh;
-    background: url(SayaliGedRight.jpg) no-repeat;
+    background: url(SayaliRight.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -160,12 +160,12 @@ body {
 }
 
 .about-img img {
-    padding-bottom: 20%;
-    width: 100%;
-    max-width: 630px;
-    height: auto;
-    border-radius: 8px;
+    width: 800px; /* Adjust as needed */
+    height: 800px; /* Adjust as needed */
+    border-radius: 50%;
+    object-fit: cover;
 }
+
 
 .about-text h2 {
     font-size: 60px;
