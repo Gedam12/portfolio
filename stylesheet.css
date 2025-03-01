@@ -160,8 +160,8 @@ body {
 }
 
 .about-img img {
-    width: 800px; /* Adjust as needed */
-    height: 800px; /* Adjust as needed */
+    width: 1000px; /* Adjust as needed */
+    height: 1000px; /* Adjust as needed */
     border-radius: 50%;
     object-fit: cover;
 }
