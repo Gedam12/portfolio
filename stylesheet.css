@@ -160,8 +160,8 @@ body {
 }
 
 .about-img img {
-    width: 1000px; /* Adjust as needed */
-    height: 1000px; /* Adjust as needed */
+    width: 800px; /* Adjust as needed */
+    height: 800px; /* Adjust as needed */
     border-radius: 50%;
     object-fit: cover;
 }
@@ -287,7 +287,7 @@ body {
 }
 
 .progress-line.javascript span {
-    width: 40%;
+    width: 60%;
 }
 
 .progress-line.css span {
@@ -295,6 +295,26 @@ body {
 }
 
 .progress-line.python span {
+    width: 80%;
+}
+
+.progress-line.typescript span {
+    width: 50%;
+}
+
+.progress-line.java span {
+    width: 70%;
+}
+
+.progress-line.go span {
+    width: 70%;
+}
+
+.progress-line.sql span {
+    width: 80%;
+}
+
+.progress-line.r span {
     width: 80%;
 }
 
@@ -311,20 +331,41 @@ body {
     opacity: 0;
 }
 
+
 .progress-line.html span::after {
-    content: 60%;
+    width: 60%;
 }
 
 .progress-line.javascript span::after {
-    content: 50%;
+    width: 60%;
 }
 
 .progress-line.css span::after {
-    content: 40%;
+    width: 50%;
 }
 
 .progress-line.python span::after {
-    content: 80%;
+    width: 80%;
+}
+
+.progress-line.typescript span::after {
+    width: 50%;
+}
+
+.progress-line.java span::after {
+    width: 70%;
+}
+
+.progress-line.go span::after {
+    width: 70%;
+}
+
+.progress-line.sql span::after {
+    width: 80%;
+}
+
+.progress-line.r span::after {
+    width: 80%;
 }
 
 .progress-line span::before {
@@ -479,53 +520,39 @@ body {
 
 .portfolio-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(359px, auto));
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+    grid-gap: 20px; /* Space between columns and rows */
+    margin-top: 20px;
 }
 
 .row {
     position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    cursor: pointer;
 }
 
 .row img {
-    width: 100%;
-    border-radius: 8px;
-    display: block;
-    transition: transform 0.5s;
+    width: 100%; /* Makes sure the image takes up the full width of the column */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+
 .layer {
-    width: 100%;
-    height: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), #0ef);
-    position: absolute;
-    border-radius: 8px;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 40px;
-    transition: height 0.5s;
 }
 
-.layer h5 {
-    color: #000;
+.layer h5, .layer p {
+    margin: 5px 0;
+}
+
+.layer a {
+    margin-top: 10px;
     font-size: 20px;
-    font-weight: 600;
-    margin-top: 15px;
+    text-decoration: none;
 }
 
-.layer p {
-    color: #000;
-    font-size: 1rem;
-    line-height: 1.8;
-}
 
 .layeri {
     color: #ff004f;
@@ -712,3 +739,8 @@ body {
         opacity: 1;
     }
 }
+
+html {
+    scroll-behavior: auto; /* or remove this line */
+  }
+  
