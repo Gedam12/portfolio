@@ -117,6 +117,234 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// ===== CONTACT FORM FUNCTIONALITY =====
+
+// Submit contact form
+function submitContactForm(event) {
+    event.preventDefault();
+    
+    const statusDiv = document.getElementById('contactStatus');
+    const submitBtn = document.querySelector('.send');
+    
+    // Get form data
+    const formData = {
+        name: document.getElementById('contactName').value.trim(),
+        email: document.getElementById('contactEmail').value.trim(),
+        subject: document.getElementById('contactSubject').value.trim(),
+        message: document.getElementById('contactMessage').value.trim()
+    };
+    
+    // Validate form
+    if (!validateContactForm(formData)) {
+        return;
+    }
+    
+    // Show loading state
+    showContactStatus('loading', 'Sending message...');
+    submitBtn.disabled = true;
+    submitBtn.value = 'Sending...';
+    
+    // Simulate form submission (replace with actual email service)
+    setTimeout(() => {
+        try {
+            // Here you would typically send the data to your backend
+            console.log('Contact form data:', formData);
+            
+            // Show success message
+            showContactStatus('success', 'Message sent successfully! I\'ll get back to you soon.');
+            
+            // Clear form
+            document.getElementById('contactForm').reset();
+            
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.value = 'Send Message';
+            
+        } catch (error) {
+            showContactStatus('error', 'Failed to send message. Please try again.');
+            submitBtn.disabled = false;
+            submitBtn.value = 'Send Message';
+        }
+    }, 2000);
+}
+
+// Validate contact form
+function validateContactForm(data) {
+    const statusDiv = document.getElementById('contactStatus');
+    
+    // Check required fields
+    if (!data.name) {
+        showContactStatus('error', 'Please enter your name.');
+        document.getElementById('contactName').focus();
+        return false;
+    }
+    
+    if (!data.email) {
+        showContactStatus('error', 'Please enter your email.');
+        document.getElementById('contactEmail').focus();
+        return false;
+    }
+    
+    if (!validateEmail(data.email)) {
+        showContactStatus('error', 'Please enter a valid email address.');
+        document.getElementById('contactEmail').focus();
+        return false;
+    }
+    
+    if (!data.subject) {
+        showContactStatus('error', 'Please enter a subject.');
+        document.getElementById('contactSubject').focus();
+        return false;
+    }
+    
+    if (!data.message) {
+        showContactStatus('error', 'Please enter your message.');
+        document.getElementById('contactMessage').focus();
+        return false;
+    }
+    
+    if (data.message.length < 10) {
+        showContactStatus('error', 'Message should be at least 10 characters long.');
+        document.getElementById('contactMessage').focus();
+        return false;
+    }
+    
+    return true;
+}
+
+// Show contact status message
+function showContactStatus(type, message) {
+    const statusDiv = document.getElementById('contactStatus');
+    
+    statusDiv.className = `contact-status ${type}`;
+    statusDiv.textContent = message;
+    statusDiv.style.display = 'block';
+    
+    // Auto-hide success/error messages after 5 seconds
+    if (type !== 'loading') {
+        setTimeout(() => {
+            statusDiv.style.display = 'none';
+        }, 5000);
+    }
+}
+
+// Clear contact form
+function clearContactForm() {
+    if (confirm('Are you sure you want to clear all fields?')) {
+        document.getElementById('contactForm').reset();
+        document.getElementById('contactStatus').style.display = 'none';
+    }
+}
+
+// Email validation function
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+// Add real-time validation
+document.addEventListener('DOMContentLoaded', function() {
+    // Email validation on blur
+    const emailInput = document.getElementById('contactEmail');
+    if (emailInput) {
+        emailInput.addEventListener('blur', function() {
+            if (this.value && !validateEmail(this.value)) {
+                this.style.borderColor = '#ff4757';
+                showContactStatus('error', 'Please enter a valid email address.');
+            } else {
+                this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                const statusDiv = document.getElementById('contactStatus');
+                if (statusDiv.classList.contains('error')) {
+                    statusDiv.style.display = 'none';
+                }
+            }
+        });
+    }
+    
+    // Character counter for message
+    const messageTextarea = document.getElementById('contactMessage');
+    if (messageTextarea) {
+        // Create character counter
+        const counter = document.createElement('div');
+        counter.id = 'messageCounter';
+        counter.style.cssText = 'text-align: right; font-size: 12px; color: #ccc; margin-top: -15px; margin-bottom: 15px;';
+        messageTextarea.parentNode.insertBefore(counter, messageTextarea.nextSibling);
+        
+        messageTextarea.addEventListener('input', function() {
+            const length = this.value.length;
+            counter.textContent = `${length}/500 characters`;
+            
+            if (length > 500) {
+                counter.style.color = '#ff4757';
+                this.style.borderColor = '#ff4757';
+            } else if (length < 10) {
+                counter.style.color = '#ffa502';
+                this.style.borderColor = '#ffa502';
+            } else {
+                counter.style.color = '#2ecc71';
+                this.style.borderColor = '#0ef';
+            }
+        });
+    }
+    
+    // Add animation delays to contact list items
+    const contactListItems = document.querySelectorAll('.contact-list li');
+    contactListItems.forEach((item, index) => {
+        item.style.setProperty('--delay', index);
+    });
+    
+    // Add animation delays to social icons
+    const socialIcons = document.querySelectorAll('.contact-icons a');
+    socialIcons.forEach((icon, index) => {
+        icon.style.setProperty('--delay', index);
+    });
+});
+
+// Add form auto-save functionality
+function autoSaveContactForm() {
+    const formData = {
+        name: document.getElementById('contactName').value,
+        email: document.getElementById('contactEmail').value,
+        subject: document.getElementById('contactSubject').value,
+        message: document.getElementById('contactMessage').value
+    };
+    
+    localStorage.setItem('contactFormData', JSON.stringify(formData));
+}
+
+// Load saved form data
+function loadSavedContactForm() {
+    const savedData = localStorage.getItem('contactFormData');
+    if (savedData) {
+        const formData = JSON.parse(savedData);
+        
+        document.getElementById('contactName').value = formData.name || '';
+        document.getElementById('contactEmail').value = formData.email || '';
+        document.getElementById('contactSubject').value = formData.subject || '';
+        document.getElementById('contactMessage').value = formData.message || '';
+    }
+}
+
+// Clear saved form data
+function clearSavedContactForm() {
+    localStorage.removeItem('contactFormData');
+}
+
+// Add auto-save listeners
+document.addEventListener('DOMContentLoaded', function() {
+    loadSavedContactForm();
+    
+    const formInputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('input', autoSaveContactForm);
+    });
+    
+    // Clear saved data on successful submission
+    document.getElementById('contactForm').addEventListener('submit', function() {
+        setTimeout(clearSavedContactForm, 3000); // Clear after 3 seconds
+    });
+});
+
 // Main function to generate portfolio
 function generatePortfolio() {
     // Validate required fields
