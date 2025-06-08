@@ -57,7 +57,7 @@ body {
     width: 100%;
     justify-content: space-between;
     height: 100vh;
-    background: url(Trash/2SayaliJungle.jpg) no-repeat;
+    background: (Trash/2SayaliJungle.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
