@@ -12,6 +12,35 @@
 </head>
 
 <body>
+    <!-- Enhanced Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">Sayali Gedam</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+        <p style="color: #ccc; margin-top: 10px;">Loading Portfolio...</p>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Floating Navigation Dots -->
+    <div class="nav-dots" id="navDots">
+        <div class="nav-dot active" data-section="home"></div>
+        <div class="nav-dot" data-section="about"></div>
+        <div class="nav-dot" data-section="skill"></div>
+        <div class="nav-dot" data-section="project"></div>
+        <div class="nav-dot" data-section="contact"></div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <i class='bx bx-moon'></i>
+    </button>
+
+    <!-- Particles Container -->
+    <div class="particles" id="particles"></div>
+
     <header class="header">
         <a href="#" class="logo">Portfolio</a>
 
@@ -24,13 +53,11 @@
         </nav>
     </header>
 
-    <section class="home">
+    <section class="home" id="home">
+        <div class="home-image-hover"></div>
         <div class="home-content">
             <h3>hello, it's me</h3>
-            <h1>sayali gedam</h1>
-
-
-
+            <h1 class="glitch" data-text="sayali gedam">sayali gedam</h1>
             <h3>and i am a <span class="text"></span></h3>
             <p>software engineer with over 3 years of experience in
                 <br>full-stack development
@@ -46,11 +73,8 @@
                 <a href="mailto:sayaligedam12@gmail.com" style="--i:9">
                     <i class='bx bxl-gmail'></i>
                 </a>
-
             </div>
             <a href="#about" class="btn-box">More About Me</a>
-
-
         </div>
     </section>
 
@@ -62,7 +86,7 @@
             <h2>About<span>Me</span></h2>
             <h4>Web Developer | Software Engineer</h4>
             <p>
-                Software Engineer with 2+ years of experience in full-stack development, specializing in Python,
+                Software Engineer with 3+ years of experience in full-stack development, specializing in Python,
                 JavaScript, and modern frameworks like React.js and Node.js. Skilled in designing and implementing
                 scalable applications using microservices architecture while seamlessly integrating cloud technologies
                 such as AWS and Azure. Adept at optimizing system performance, enhancing efficiency, and driving Agile
@@ -72,29 +96,14 @@
                 <br>With a Master's in Computer Science from New England
                 College and hands-on experience across diverse projects, I am eager to contribute my technical skills
                 to drive innovation and deliver impactful solutions.
-                In my recent role at Match4Action-CrowdDoing, I led a cross-functional team to develop a Medicinal
-                Food App, leveraging Java for backend algorithms and Python for data integration. This project not
-                only improved data accuracy by 50% but also accelerated the timeline by 30%. Prior to this, at
-                Capstone Technology, I engineered a Python- and Java-based inventory management system,
-                reducing tracking errors by 20% and enhancing operational efficiency.
-                Throughout my career, I have honed my proficiency in programming languages like Python, C++, and
-                JavaScript, and frameworks such as Django, TensorFlow, and React. My experience with cloud
-                platforms like AWS and Azure, along with containerization tools like Docker and Kubernetes, has
-                allowed me to build scalable solutions that meet dynamic project demands. I thrive in collaborative,
-                agile environments where innovation and problem-solving take center stage.
-                I am particularly passionate about leveraging technology to build user-centric applications and
-                streamline processes. I would welcome the opportunity to bring my technical acumen, problem-
-                solving skills, and dedication to excellence team.
             </p>
-
-            <!-- <a href="#" class="btn-box">More About Me</a> -->
         </div>
     </section>
 
     <h1 class="sub-title">My<span>Skills</span></h1>
 
-    <section class="skills-container">
-        <div class="container1" id="Skill">
+    <section class="skills-container" id="skill">
+        <div class="container1">
             <h1 class="heading">Technical Skills</h1>
             <div class="Technical-bars">
                 <div class="bar"><i style="color: #c95d2e" class='bx bxl-html5'></i>
@@ -172,11 +181,9 @@
             </div>
         </div>
 
-
         <div class="container1">
             <h1 class="heading1">Professional Skills</h1>
             <div class="radial-bars">
-
                 <svg x="0px" y="0px" viewBox="0 0 200 200">
                     <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
                     <circle class="path path1" cx="100" cy="100" r="80"></circle>
@@ -185,7 +192,6 @@
                 <div class="text">Creativity</div>
             </div>
             <div class="radial-bars">
-
                 <svg x="0px" y="0px" viewBox="0 0 200 200">
                     <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
                     <circle class="path path2" cx="100" cy="100" r="80"></circle>
@@ -194,7 +200,6 @@
                 <div class="text">Problem Solving</div>
             </div>
             <div class="radial-bars">
-
                 <svg x="0px" y="0px" viewBox="0 0 200 200">
                     <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
                     <circle class="path path3" cx="100" cy="100" r="80"></circle>
@@ -203,7 +208,6 @@
                 <div class="text">Communication</div>
             </div>
             <div class="radial-bars">
-
                 <svg x="0px" y="0px" viewBox="0 0 200 200">
                     <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
                     <circle class="path path4" cx="100" cy="100" r="80"></circle>
@@ -213,13 +217,14 @@
             </div>
         </div>
     </section>
+
     <section>
         <div id="portfolio" id="project">
             <div class="main-text" id="project">
                 <h2>Latest<span>Project</span></h2>
 
                 <div class="portfolio-content">
-                    <div class="row">
+                    <div class="row glass-card">
                         <img src="wordsalad.jpg">
                         <div class="layer">
                             <h5>Word Salad</h5>
@@ -227,7 +232,7 @@
                             <a href="#"><i class='bx bx-link-external'></i></a>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row glass-card">
                         <img src="Trash/Azure.jpg">
                         <div class="layer">
                             <h6>Deploy ML Model as Dockerized API on Azure</h6>
@@ -235,7 +240,7 @@
                             <a href="#"><i class='bx bx-link-external'></i></a>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row glass-card">
                         <img src="Trash/portfolio.jpg">
                         <div class="layer">
                             <h7>Build a Portfolio App</h7>
@@ -257,22 +262,22 @@
                 your ideas to life!</p>
 
             <div class="contact-list">
-                <li><i class='bx bxs-send'></i>sayaligedam12@gmail.com</li>
-                <li><i class='bx bx-phone'></i>8573186834</li>
-                <li><i class='bx bxs-location-plus'></i>Boston, Massachusetts, US</li>
+                <li style="--delay: 0"><i class='bx bxs-send'></i>sayaligedam12@gmail.com</li>
+                <li style="--delay: 1"><i class='bx bx-phone'></i>8573186834</li>
+                <li style="--delay: 2"><i class='bx bxs-location-plus'></i>Boston, Massachusetts, US</li>
             </div>
 
             <div class="contact-icons">
-                <a href="https://www.linkedin.com/in/sayali-gedam/" target="_blank" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/sayali-gedam/" target="_blank" title="LinkedIn" style="--delay: 0">
                     <i class='bx bxl-linkedin-square'></i>
                 </a>
-                <a href="https://github.com/Gedam12/" target="_blank" title="GitHub">
+                <a href="https://github.com/Gedam12/" target="_blank" title="GitHub" style="--delay: 1">
                     <i class='bx bxl-github'></i>
                 </a>
-                <a href="mailto:sayaligedam12@gmail.com" title="Email">
+                <a href="mailto:sayaligedam12@gmail.com" title="Email" style="--delay: 2">
                     <i class='bx bxl-gmail'></i>
                 </a>
-                <a href="https://twitter.com/sayali_gedam" target="_blank" title="Twitter">
+                <a href="https://twitter.com/sayali_gedam" target="_blank" title="Twitter" style="--delay: 3">
                     <i class='bx bxl-twitter'></i>
                 </a>
             </div>
@@ -299,59 +304,52 @@
         </div>
     </section>
 
-
-
-
-    <!-- =============================================================================================================== -->
-
-
+    <!-- Personal Hobby Section -->
     <section id="personal-hobby">
         <div class="main-text">
             <h2>Personal<span>Hobby</span></h2>
             <div class="portfolio-content">
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/IMG_20211031_153552000_HDR (1).jpg" alt="Personal Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/B612_20230121_193314_881.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/Snapchat-400337608~3.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/Snapchat-1649855090~2.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/Snapchat-2050254958~2.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/Screenshot_20250301-145912~2.png" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/IMG-20220114-WA0013.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/IMG-20220114-WA0000.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/IMG-20220114-WA0010.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/IMG-20220114-WA0012.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/IMG-20220114-WA0007.jpg" alt="Another Hobby Image">
                 </div>
-                <div class="row">
+                <div class="row glass-card">
                     <img src="Trash/IMG-20220114-WA0008.jpg" alt="Another Hobby Image">
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- builder_section -->
-
+    <!-- Portfolio Builder Section -->
     <section class="builder-section" id="builder">
         <div class="builder-header">
             <h2>🎨 Create Your Own Portfolio</h2>
@@ -364,7 +362,7 @@
                 <div class="form-section">
                     <form id="portfolioForm">
                         <h3>Basic Information</h3>
-                        <!-- --------------------------------------------------------------------------------------------------- -->
+
                         <div class="form-group">
                             <label>Profile Photo</label>
                             <input type="file" id="profilePhoto" accept="image/*"
@@ -375,7 +373,7 @@
                                     Photo</button>
                             </div>
                         </div>
-                        <!--   -----------------------------------------------------------------------------------------------                       -->
+
                         <div class="form-group">
                             <label>Full Name</label>
                             <input type="text" id="fullName" placeholder="Enter your full name" required>
