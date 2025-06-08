@@ -1070,3 +1070,122 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Add these functions to your main.js file
+
+// Photo upload handling
+function handlePhotoUpload(input, targetId) {
+    const file = input.files[0];
+    if (file) {
+        // Validate file type
+        if (!file.type.startsWith('image/')) {
+            alert('Please select a valid image file!');
+            input.value = '';
+            return;
+        }
+        
+        // Validate file size (max 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('Image size should be less than 5MB!');
+            input.value = '';
+            return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.getElementById(targetId);
+            const preview = document.getElementById(targetId + 'Preview');
+            
+            if (img && preview) {
+                img.src = e.target.result;
+                img.style.display = 'block';
+                preview.style.display = 'block';
+                
+                // Store image data for later use
+                window[targetId + 'Data'] = e.target.result;
+            }
+        };
+        reader.readAsDataURL(file);
+    }
+}
+
+// Remove photo function
+function removePhoto(targetId) {
+    const img = document.getElementById(targetId);
+    const preview = document.getElementById(targetId + 'Preview');
+    const input = document.querySelector(`input[onchange*="${targetId}"]`);
+    
+    if (img) {
+        img.src = '';
+        img.style.display = 'none';
+    }
+    if (preview) {
+        preview.style.display = 'none';
+    }
+    if (input) {
+        input.value = '';
+    }
+    
+    // Clear stored data
+    window[targetId + 'Data'] = null;
+}
+
+// Update the updatePreview function to include photo
+// Add this to your existing updatePreview function (around line where you update other preview elements):
+function updatePreviewPhoto(data) {
+    const previewImg = document.getElementById('previewUserPhoto');
+    const previewText = document.getElementById('previewPhotoText');
+    
+    if (window.userPhotoData) {
+        previewImg.src = window.userPhotoData;
+        previewImg.style.display = 'block';
+        previewText.style.display = 'none';
+    } else {
+        previewImg.style.display = 'none';
+        previewText.style.display = 'block';
+    }
+}
+
+// Add this line to your existing generatePortfolio() function, after collecting form data:
+// formData.photo = window.userPhotoData || null;
+
+// Update your generateFullHTML function to include the photo in downloaded portfolio
+// Add this where you create the about section HTML:
+function getPhotoHTML(photoData) {
+    if (photoData) {
+        return `<img src="${photoData}" alt="Profile Photo" style="width: 100%; height: 100%; object-fit: cover;">`;
+    } else {
+        return '<div style="color: white; font-size: 18px;">Photo</div>';
+    }
+}
+
+// Add Sayali's photo upload functionality
+function uploadSayaliPhoto() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = function(e) {
+        handlePhotoUpload(this, 'sayaliPhoto');
+        const img = document.getElementById('sayaliPhoto');
+        const placeholder = document.querySelector('.photo-placeholder .photo-text');
+        
+        if (img.src) {
+            img.style.display = 'block';
+            placeholder.style.display = 'none';
+        }
+    };
+    input.click();
+}
+
+// Add click event to Sayali's photo placeholder
+document.addEventListener('DOMContentLoaded', function() {
+    const photoPlaceholder = document.querySelector('.photo-placeholder');
+    if (photoPlaceholder) {
+        photoPlaceholder.style.cursor = 'pointer';
+        photoPlaceholder.addEventListener('click', uploadSayaliPhoto);
+        photoPlaceholder.title = 'Click to upload Sayali\'s photo';
+    }
+    
+    // Call updatePreviewPhoto in your existing updatePreview function
+    // Add this line in your updatePreview function:
+    updatePreviewPhoto(data);
+});
