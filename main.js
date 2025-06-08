@@ -1,14 +1,220 @@
+// ===== TYPING EFFECT =====
 var typed = new Typed(".text", {
     strings: ["Software Engineer", "Web Developer"],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
     loop: true
-})
+});
 
-// ===== PORTFOLIO BUILDER JAVASCRIPT =====
+// ===== ENHANCED LOADING SCREEN =====
+document.addEventListener('DOMContentLoaded', function () {
+    const loadingScreen = document.getElementById('loadingScreen');
+    const loadingProgress = document.querySelector('.loading-progress');
 
-// Variables to track skills and projects count
+    // Create particles for loading screen
+    function createLoadingParticles() {
+        const particlesContainer = document.createElement('div');
+        particlesContainer.className = 'loading-particles';
+        loadingScreen.appendChild(particlesContainer);
+
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    }
+
+    createLoadingParticles();
+
+    // Simulate loading progress
+    let progress = 0;
+    const progressInterval = setInterval(() => {
+        progress += Math.random() * 15 + 5;
+        if (progress >= 100) {
+            progress = 100;
+            clearInterval(progressInterval);
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 500);
+        }
+        loadingProgress.style.width = progress + '%';
+    }, 200);
+});
+
+// ===== FLOATING PARTICLES SYSTEM =====
+function createParticles() {
+    const particlesContainer = document.getElementById('particles');
+    if (!particlesContainer) return;
+
+    function addParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle-element';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDuration = (Math.random() * 6 + 4) + 's';
+        particle.style.opacity = Math.random() * 0.8 + 0.2;
+        particlesContainer.appendChild(particle);
+
+        setTimeout(() => {
+            particle.remove();
+        }, 8000);
+    }
+
+    setInterval(addParticle, 300);
+}
+
+// ===== SCROLL PROGRESS BAR =====
+function updateScrollProgress() {
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (!scrollProgress) return;
+
+    const scrollTop = window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+
+    scrollProgress.style.width = scrollPercent + '%';
+}
+
+// ===== NAVIGATION DOTS FUNCTIONALITY =====
+function initNavigationDots() {
+    const navDots = document.querySelectorAll('.nav-dot');
+    const sections = document.querySelectorAll('section[id]');
+
+    navDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            if (sections[index]) {
+                sections[index].scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
+    // Update active dot on scroll
+    function updateActiveDot() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navDots.forEach((dot, index) => {
+            dot.classList.remove('active');
+            if (sections[index] && sections[index].getAttribute('id') === current) {
+                dot.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveDot);
+}
+
+// ===== ENHANCED SCROLL EFFECTS =====
+function initScrollEffects() {
+    const header = document.querySelector('.header');
+
+    window.addEventListener('scroll', () => {
+        updateScrollProgress();
+
+        // Header glass effect
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+
+        // Parallax effect for home section
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.home');
+        if (parallax) {
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        }
+    });
+}
+
+// ===== GLITCH EFFECT FOR NAME =====
+function addGlitchEffect() {
+    const nameElement = document.querySelector('.home-content h1');
+    if (nameElement) {
+        const text = nameElement.textContent;
+        nameElement.classList.add('glitch');
+        nameElement.setAttribute('data-text', text);
+
+        // Trigger glitch effect randomly
+        setInterval(() => {
+            if (Math.random() < 0.1) { // 10% chance every second
+                nameElement.style.animation = 'none';
+                setTimeout(() => {
+                    nameElement.style.animation = '';
+                }, 50);
+            }
+        }, 1000);
+    }
+}
+
+// ===== THEME TOGGLE =====
+function toggleTheme() {
+    const body = document.body;
+    const themeIcon = document.querySelector('.theme-toggle i');
+
+    body.classList.toggle('dark-theme');
+
+    if (body.classList.contains('dark-theme')) {
+        themeIcon.className = 'bx bx-sun';
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeIcon.className = 'bx bx-moon';
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+// ===== CONTACT FORM FUNCTIONS =====
+function submitContactForm(event) {
+    event.preventDefault();
+
+    const statusDiv = document.getElementById('contactStatus');
+    const name = document.getElementById('contactName').value;
+    const email = document.getElementById('contactEmail').value;
+    const subject = document.getElementById('contactSubject').value;
+    const message = document.getElementById('contactMessage').value;
+
+    // Show loading state
+    statusDiv.className = 'contact-status loading';
+    statusDiv.style.display = 'block';
+    statusDiv.textContent = 'Sending message...';
+
+    // Simulate sending (replace with actual form submission)
+    setTimeout(() => {
+        statusDiv.className = 'contact-status success';
+        statusDiv.textContent = 'Message sent successfully!';
+
+        // Clear form
+        document.getElementById('contactForm').reset();
+
+        // Hide status after 3 seconds
+        setTimeout(() => {
+            statusDiv.style.display = 'none';
+        }, 3000);
+    }, 2000);
+}
+
+function clearContactForm() {
+    if (confirm('Are you sure you want to clear the form?')) {
+        document.getElementById('contactForm').reset();
+        const statusDiv = document.getElementById('contactStatus');
+        statusDiv.style.display = 'none';
+    }
+}
+
+// ===== PORTFOLIO BUILDER FUNCTIONALITY =====
 let skillCount = 1;
 let projectCount = 1;
 
@@ -77,45 +283,27 @@ function removeProject(button) {
     }
 }
 
-// Add event listeners when page loads
-document.addEventListener('DOMContentLoaded', function () {
-    // Add event listeners for existing skill level sliders
-    const skillLevels = document.querySelectorAll('.skill-level');
-    skillLevels.forEach(function (slider) {
-        const percent = slider.nextElementSibling;
-        slider.addEventListener('input', function () {
-            percent.textContent = this.value + '%';
-        });
-    });
+// Photo upload handler
+function handlePhotoUpload(input, previewId) {
+    const file = input.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const preview = document.getElementById(previewId + 'Preview');
+            const img = document.getElementById(previewId);
+            img.src = e.target.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+}
 
-    // Add smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('.navbar a[href^="#"]');
-    navLinks.forEach(function (link) {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-
-    // Add scroll effect for header
-    window.addEventListener('scroll', function () {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(8, 21, 51, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
-        } else {
-            header.style.background = '#081533';
-            header.style.backdropFilter = 'none';
-        }
-    });
-});
+function removePhoto(previewId) {
+    const preview = document.getElementById(previewId + 'Preview');
+    const fileInput = document.getElementById('profilePhoto');
+    preview.style.display = 'none';
+    fileInput.value = '';
+}
 
 // Main function to generate portfolio
 function generatePortfolio() {
@@ -918,20 +1106,98 @@ function generateFullHTML(data) {
 </html>`;
 }
 
-// Utility function to sanitize HTML content
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize all enhancements
+    createParticles();
+    initNavigationDots();
+    initScrollEffects();
+    addGlitchEffect();
+
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.querySelector('.theme-toggle i').className = 'bx bx-sun';
+    }
+
+    // Add event listeners for existing skill level sliders
+    const skillLevels = document.querySelectorAll('.skill-level');
+    skillLevels.forEach(function (slider) {
+        const percent = slider.nextElementSibling;
+        slider.addEventListener('input', function () {
+            percent.textContent = this.value + '%';
+        });
+    });
+
+    // Add smooth scrolling for navigation links
+    const navLinks = document.querySelectorAll('.navbar a[href^="#"]');
+    navLinks.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add intersection observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.container1, .row, .about-text').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(50px)';
+        el.style.transition = 'all 0.8s ease';
+        observer.observe(el);
+    });
+
+    // Auto-save form data to prevent loss
+    const formInputs = document.querySelectorAll('#portfolioForm input, #portfolioForm textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('input', function () {
+            localStorage.setItem(`portfolio_${this.id || this.className}`, this.value);
+        });
+    });
+
+    // Load saved form data
+    formInputs.forEach(input => {
+        const savedValue = localStorage.getItem(`portfolio_${input.id || input.className}`);
+        if (savedValue) {
+            input.value = savedValue;
+        }
+    });
+});
+
+// ===== UTILITY FUNCTIONS =====
 function sanitizeHTML(str) {
     const temp = document.createElement('div');
     temp.textContent = str;
     return temp.innerHTML;
 }
 
-// Function to validate email format
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
-// Function to validate URL format
 function validateURL(url) {
     try {
         new URL(url);
@@ -971,22 +1237,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.title = '';
                 }
             });
-        }
-    });
-
-    // Auto-save form data to prevent loss
-    const formInputs = document.querySelectorAll('#portfolioForm input, #portfolioForm textarea');
-    formInputs.forEach(input => {
-        input.addEventListener('input', function () {
-            localStorage.setItem(`portfolio_${this.id || this.className}`, this.value);
-        });
-    });
-
-    // Load saved form data
-    formInputs.forEach(input => {
-        const savedValue = localStorage.getItem(`portfolio_${input.id || input.className}`);
-        if (savedValue) {
-            input.value = savedValue;
         }
     });
 });
@@ -1069,4 +1319,3 @@ document.addEventListener('DOMContentLoaded', function () {
         input.addEventListener('input', debouncedPreviewUpdate);
     });
 });
-
