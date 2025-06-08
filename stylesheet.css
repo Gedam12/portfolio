@@ -57,7 +57,7 @@ body {
     width: 100%;
     justify-content: space-between;
     height: 100vh;
-    background: url(Trash/2SayaliJungle.jpg) no-repeat;
+    background: url(file:///Users/sayaligedam/Downloads/SayaliRight.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -160,8 +160,10 @@ body {
 }
 
 .about-img img {
-    width: 800px; /* Adjust as needed */
-    height: 800px; /* Adjust as needed */
+    width: 800px;
+    /* Adjust as needed */
+    height: 800px;
+    /* Adjust as needed */
     border-radius: 50%;
     object-fit: cover;
 }
@@ -520,8 +522,10 @@ body {
 
 .portfolio-content {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
-    grid-gap: 20px; /* Space between columns and rows */
+    grid-template-columns: repeat(3, 1fr);
+    /* Creates 3 columns */
+    grid-gap: 20px;
+    /* Space between columns and rows */
     margin-top: 20px;
 }
 
@@ -530,7 +534,8 @@ body {
 }
 
 .row img {
-    width: 100%; /* Makes sure the image takes up the full width of the column */
+    width: 100%;
+    /* Makes sure the image takes up the full width of the column */
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -543,7 +548,8 @@ body {
     align-items: center;
 }
 
-.layer h5, .layer p {
+.layer h5,
+.layer p {
     margin: 5px 0;
 }
 
@@ -688,6 +694,7 @@ body {
 }
 
 /* Add your styles for the progress bars and other content here */
+
 
 .builder-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -1015,8 +1022,9 @@ body {
     }
 }
 
-
-
+/* html {
+    scroll-behavior: smooth;
+} */
 
 @keyframes slideRight {
     0% {
@@ -1067,6 +1075,6 @@ body {
 }
 
 html {
-    scroll-behavior: auto; /* or remove this line */
-  }
-  
+    scroll-behavior: auto;
+    /* or remove this line */
+}
