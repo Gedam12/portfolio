@@ -324,8 +324,196 @@
         </div>
     </section>
 
+    <section class="builder-section" id="builder">
+        <div class="builder-header">
+            <h2>🎨 Create Your Own Portfolio</h2>
+            <p>Inspired by my portfolio? Now you can create your own professional portfolio using the same design and
+                style!</p>
+        </div>
 
+        <div class="builder-container">
+            <div class="builder-content">
+                <div class="form-section">
+                    <form id="portfolioForm">
+                        <h3>Basic Information</h3>
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="fullName" placeholder="Enter your full name" required>
+                        </div>
 
+                        <div class="form-group">
+                            <label>Professional Title</label>
+                            <input type="text" id="title" placeholder="e.g., Software Engineer, Web Developer" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Bio/Introduction</label>
+                            <textarea id="bio" placeholder="Write a brief introduction about yourself..."
+                                required></textarea>
+                        </div>
+
+                        <h3>Contact Information</h3>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email" placeholder="your.email@domain.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                        </div>
+
+                        <div class="form-group">
+                            <label>LinkedIn URL</label>
+                            <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+                        </div>
+
+                        <div class="form-group">
+                            <label>GitHub URL</label>
+                            <input type="url" id="github" placeholder="https://github.com/yourusername">
+                        </div>
+
+                        <h3>About Section</h3>
+                        <div class="form-group">
+                            <label>Detailed About Description</label>
+                            <textarea id="aboutDescription"
+                                placeholder="Write detailed information about your experience, education, and career goals..."
+                                style="height: 150px;" required></textarea>
+                        </div>
+
+                        <h3>Skills</h3>
+                        <div id="skillsContainer">
+                            <div class="skill-item">
+                                <input type="text" placeholder="Skill name (e.g., JavaScript)" class="skill-name">
+                                <input type="range" min="0" max="100" value="70" class="skill-level">
+                                <span class="skill-percent">70%</span>
+                                <button type="button" class="btn btn-small" onclick="removeSkill(this)">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-small" onclick="addSkill()">Add Skill</button>
+
+                        <h3>Projects</h3>
+                        <div id="projectsContainer">
+                            <div class="project-item">
+                                <div class="form-group">
+                                    <label>Project Title</label>
+                                    <input type="text" placeholder="Project name" class="project-title">
+                                </div>
+                                <div class="form-group">
+                                    <label>Project Description</label>
+                                    <textarea placeholder="Describe your project..."
+                                        class="project-description"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Project URL (optional)</label>
+                                    <input type="url" placeholder="https://yourproject.com" class="project-url">
+                                </div>
+                                <button type="button" class="btn btn-small" onclick="removeProject(this)">Remove
+                                    Project</button>
+                                <hr style="margin: 20px 0;">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-small" onclick="addProject()">Add Project</button>
+
+                        <button type="button" class="btn generate-btn" onclick="generatePortfolio()">Generate
+                            Portfolio</button>
+                        <button type="button" class="btn download-btn generate-btn" onclick="downloadPortfolio()"
+                            id="downloadBtn" style="display: none;">Download Portfolio</button>
+                    </form>
+                </div>
+
+                <div class="preview-section">
+                    <div id="portfolioPreview" class="preview-portfolio">
+                        <div
+                            style="background: #081533; padding: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+                            <div style="color: #fff; font-weight: 600;">Portfolio</div>
+                            <nav style="display: flex; gap: 15px;">
+                                <a href="#" style="color: #fff; text-decoration: none;">Home</a>
+                                <a href="#" style="color: #fff; text-decoration: none;">About</a>
+                                <a href="#" style="color: #fff; text-decoration: none;">Skills</a>
+                                <a href="#" style="color: #fff; text-decoration: none;">Projects</a>
+                                <a href="#" style="color: #fff; text-decoration: none;">Contact</a>
+                            </nav>
+                        </div>
+
+                        <div
+                            style="padding: 30px 15px; background: linear-gradient(rgba(1,21,44,0.8), rgba(1,21,44,0.8)); min-height: 200px; display: flex; align-items: center;">
+                            <div>
+                                <h3 style="font-size: 18px; margin-bottom: 8px;">Hello, it's me</h3>
+                                <h1 id="previewName" style="font-size: 28px; margin-bottom: 8px;">Your Name</h1>
+                                <h3 style="font-size: 18px; margin-bottom: 12px;">And I am a <span style="color: #0ef;"
+                                        id="previewTitle">Professional</span></h3>
+                                <p id="previewBio" style="font-size: 12px; line-height: 1.4; margin-bottom: 15px;">Your
+                                    professional bio will appear here...</p>
+                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                    <a href="#" id="previewLinkedIn"
+                                        style="display: inline-flex; justify-content: center; align-items: center; width: 25px; height: 25px; border: 1px solid #0ef; border-radius: 50%; color: #0ef; text-decoration: none; font-size: 12px;"><i
+                                            class='bx bxl-linkedin'></i></a>
+                                    <a href="#" id="previewGitHub"
+                                        style="display: inline-flex; justify-content: center; align-items: center; width: 25px; height: 25px; border: 1px solid #0ef; border-radius: 50%; color: #0ef; text-decoration: none; font-size: 12px;"><i
+                                            class='bx bxl-github'></i></a>
+                                    <a href="#" id="previewEmail"
+                                        style="display: inline-flex; justify-content: center; align-items: center; width: 25px; height: 25px; border: 1px solid #0ef; border-radius: 50%; color: #0ef; text-decoration: none; font-size: 12px;"><i
+                                            class='bx bxl-gmail'></i></a>
+                                </div>
+                                <a href="#"
+                                    style="display: inline-block; padding: 8px 16px; background: #0ef; color: #081b29; text-decoration: none; border-radius: 4px; font-size: 12px; font-weight: 600;">More
+                                    About Me</a>
+                            </div>
+                        </div>
+
+                        <div
+                            style="padding: 30px 15px; display: grid; grid-template-columns: 1fr 2fr; gap: 20px; align-items: center;">
+                            <div style="text-align: center;">
+                                <div
+                                    style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; margin: 0 auto;">
+                                    Photo</div>
+                            </div>
+                            <div>
+                                <h2 style="font-size: 20px; margin-bottom: 8px;">About <span
+                                        style="color: #0ef;">Me</span></h2>
+                                <h4 id="previewTitleAbout" style="font-size: 12px; margin-bottom: 10px;">Professional
+                                    Title</h4>
+                                <p id="previewAboutDescription" style="font-size: 10px; line-height: 1.4;">Your detailed
+                                    about description will appear here...</p>
+                            </div>
+                        </div>
+
+                        <div style="padding: 30px 15px; text-align: center;">
+                            <h2 style="font-size: 20px; margin-bottom: 15px;">My <span
+                                    style="color: #0ef;">Skills</span></h2>
+                            <div id="skillsPreview">
+                                <!-- Skills will be dynamically added here -->
+                            </div>
+                        </div>
+
+                        <div style="padding: 30px 15px; text-align: center;">
+                            <h2 style="font-size: 20px; margin-bottom: 15px;">Latest <span
+                                    style="color: #0ef;">Projects</span></h2>
+                            <div id="projectsPreview"
+                                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px;">
+                                <!-- Projects will be dynamically added here -->
+                            </div>
+                        </div>
+
+                        <div style="padding: 30px 15px;">
+                            <h2 style="font-size: 20px; margin-bottom: 10px;">Contact <span
+                                    style="color: #0ef;">Me</span></h2>
+                            <h4 style="font-size: 12px; margin-bottom: 8px;">Let's Work Together</h4>
+                            <p style="font-size: 10px; margin-bottom: 10px;">Feel free to reach out for collaboration
+                                opportunities.</p>
+                            <div>
+                                <p style="font-size: 10px; margin-bottom: 5px;"><i class='bx bxs-envelope'></i> <span
+                                        id="contactEmail">your.email@domain.com</span></p>
+                                <p style="font-size: 10px;"><i class='bx bxs-phone'></i> <span id="contactPhone">+1
+                                        (555) 123-4567</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
