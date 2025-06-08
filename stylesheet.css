@@ -16,7 +16,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 90%;
     height: 100%;
     background: linear-gradient(45deg, #081533, #01152c, #0a1a3a);
     background-size: 400% 400%;
