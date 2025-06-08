@@ -28,6 +28,14 @@
         <div class="home-content">
             <h3>hello, it's me</h3>
             <h1>sayali gedam</h1>
+<!----------------------------------------------------------------------  -->
+            <div class="home-photo">
+    <div class="photo-placeholder">
+        <img src="" alt="Sayali Gedam" id="sayaliPhoto" style="display: none;">
+        <div class="photo-text">Sayali's Photo</div>
+    </div>
+</div>
+<!--  -------------------------------------------------------------------------            -->
             <h3>and i am a <span class="text"></span></h3>
             <p>software engineer with over 3 years of experience in
                 <br>full-stack development
@@ -340,6 +348,16 @@
                 <div class="form-section">
                     <form id="portfolioForm">
                         <h3>Basic Information</h3>
+<!-- --------------------------------------------------------------------------------------------------- -->
+                        <div class="form-group">
+    <label>Profile Photo</label>
+    <input type="file" id="profilePhoto" accept="image/*" onchange="handlePhotoUpload(this, 'userPhoto')">
+    <div class="photo-preview" id="userPhotoPreview" style="display: none;">
+        <img id="userPhoto" src="" alt="Profile Photo">
+        <button type="button" class="btn btn-small" onclick="removePhoto('userPhoto')">Remove Photo</button>
+    </div>
+</div>
+<!--   -----------------------------------------------------------------------------------------------                       -->
                         <div class="form-group">
                             <label>Full Name</label>
                             <input type="text" id="fullName" placeholder="Enter your full name" required>
