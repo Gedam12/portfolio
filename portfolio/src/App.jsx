@@ -57,7 +57,9 @@ function App() {
             Software Engineer // 5+ Years Exp // MSCS
           </p>
         </div>
-        <div className="flex gap-4">
+        
+        {/* BUTTON GROUP */}
+        <div className="flex flex-wrap gap-4">
           <a 
             href={myResume} 
             target="_blank" 
@@ -74,6 +76,12 @@ function App() {
             className="border border-cyan-400/30 bg-cyan-400/5 px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest text-cyan-400 hover:text-white transition-all"
           >
             LinkedIn
+          </a>
+          <a 
+            href="mailto:sayaligedam12@gmail.com?subject=Portfolio Inquiry" 
+            className="border border-slate-700 bg-slate-900/50 px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-cyan-400 hover:border-cyan-400/30 transition-all"
+          >
+            Email Me
           </a>
         </div>
       </header>
