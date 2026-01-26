@@ -21,7 +21,7 @@ const PROJECTS = [
     metric: "25% COST SAVINGS",
     desc: "Migrated 6 critical services to AWS. Reduced record delivery time by 60% while ensuring HIPAA compliance.",
     tech: ["AWS", "FastAPI", "Docker", "RabbitMQ"],
-    link: "https://github.com/Gedam12/portfolio" // Generic link since no specific one was provided
+    link: "https://github.com/Gedam12/portfolio" 
   }
 ];
 
@@ -45,47 +45,47 @@ function App() {
   return (
     <div className="min-h-screen p-6 md:p-20 max-w-6xl mx-auto bg-[#020617]">
       {/* HEADER */}
-      <header className="mb-20 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+      <header className="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
         <div>
-          <h1 className="text-4xl md:text-5xl text-white font-medium tracking-tight">
+          <h1 className="text-5xl md:text-7xl text-white font-bold tracking-tighter">
             Sayali <span className="text-cyan-400 italic font-light">Gedam</span>
           </h1>
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-500 mt-4">
+          <p className="text-xs font-bold uppercase tracking-[0.5em] text-slate-500 mt-6">
             Software Engineer // MSCS // 5+ Years Experience
           </p>
         </div>
         <div className="flex flex-wrap gap-4">
-          <a href={myResume} target="_blank" rel="noreferrer" download className="bg-cyan-400 text-[#020617] px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest hover:bg-white transition-all">Download CV</a>
-          <a href="https://www.linkedin.com/in/sayaligedam/" target="_blank" rel="noreferrer" className="border border-cyan-400/30 bg-cyan-400/5 px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest text-cyan-400 hover:text-white transition-all">LinkedIn</a>
+          <a href={myResume} target="_blank" rel="noreferrer" download className="bg-cyan-400 text-[#020617] px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-cyan-400/10">Download CV</a>
+          <a href="mailto:sayaligedam12@gmail.com" className="border border-slate-700 bg-slate-900/50 px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest text-slate-300 hover:text-cyan-400 hover:border-cyan-400/30 transition-all">Contact</a>
         </div>
       </header>
 
-      {/* 1st: SUMMARY SECTION */}
-      <section className="mb-40 max-w-3xl">
-        <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50 mb-6">Summary</h2>
-        <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light">
-          Software Engineer with over <span className="text-white font-medium">5 years of experience</span> specializing in high-scale backend systems and cloud architecture. Recently completed an <span className="text-white font-medium">MS in Computer Science</span> from New England College with a 3.8 GPA, focused on AI integration and Cloud Computing.
+      {/* SUMMARY */}
+      <section className="mb-48 max-w-4xl">
+        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-8 underline decoration-cyan-500/30 underline-offset-8">Summary</h2>
+        <p className="text-2xl md:text-4xl text-slate-200 leading-[1.2] font-light tracking-tight">
+          Software Engineer specializing in <span className="text-white font-semibold">high-scale backend systems</span> and cloud architecture. MSCS graduate from New England College focused on <span className="text-cyan-400 italic">AI integration</span> and distributed computing.
         </p>
       </section>
 
-      {/* 2nd: JOURNEY (ZIGZAG) */}
-      <section className="mb-40">
-        <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50 mb-20 text-center">Professional Journey</h2>
+      {/* JOURNEY */}
+      <section className="mb-48">
+        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-20 text-center">Professional Journey</h2>
         <div className="relative">
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-slate-800"></div>
-          <div className="space-y-12">
+          <div className="space-y-16">
             {TIMELINE.map((item, i) => (
               <div key={i} className={`flex flex-col md:flex-row items-center w-full ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                <div className="w-full md:w-1/2 flex justify-center md:justify-start px-4 md:px-10">
-                  <div className={`p-6 rounded-xl border border-slate-800 bg-slate-900/20 backdrop-blur-sm w-full max-w-md ${i % 2 === 0 ? 'text-left' : 'md:text-right'}`}>
-                    <span className="text-[10px] font-black text-cyan-400 tracking-widest uppercase">{item.year} — {item.type}</span>
-                    <h3 className="text-xl font-bold text-white mt-1 leading-tight">{item.title}</h3>
-                    <p className="text-slate-400 text-xs font-bold uppercase mt-1 mb-3">{item.place}</p>
-                    <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+                <div className="w-full md:w-1/2 flex justify-center md:justify-start px-4 md:px-12">
+                  <div className={`p-8 rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-md w-full max-w-md ${i % 2 === 0 ? 'text-left' : 'md:text-right'}`}>
+                    <span className="text-[10px] font-black text-cyan-400 tracking-[0.2em] uppercase">{item.year} — {item.type}</span>
+                    <h3 className="text-2xl font-bold text-white mt-2 leading-tight">{item.title}</h3>
+                    <p className="text-slate-400 text-sm font-bold uppercase mt-1 mb-4">{item.place}</p>
+                    <p className="text-base text-slate-500 leading-relaxed font-light">{item.desc}</p>
                   </div>
                 </div>
                 <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center justify-center">
-                  <div className={`w-3 h-3 rounded-full border-4 border-[#020617] z-10 ${item.type === 'Work' ? 'bg-cyan-400' : 'bg-white'}`}></div>
+                  <div className={`w-4 h-4 rounded-full border-4 border-[#020617] z-10 ${item.type === 'Work' ? 'bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)]' : 'bg-white shadow-[0_0_15px_rgba(255,255,255,0.3)]'}`}></div>
                 </div>
                 <div className="hidden md:block w-1/2"></div>
               </div>
@@ -94,19 +94,19 @@ function App() {
         </div>
       </section>
 
-      {/* 3rd: SKILLS SECTION */}
-      <section className="mb-40">
-        <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50 mb-12">Technical Stack</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* SKILLS */}
+      <section className="mb-48">
+        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-16">Technical Stack</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {SKILLS.map((group, i) => (
-            <div key={i} className="group p-6 rounded-2xl border border-slate-800 bg-slate-900/10 hover:border-cyan-400/30 transition-all">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="text-xl">{group.icon}</span>
-                <h3 className="text-xs font-bold text-white uppercase tracking-widest">{group.category}</h3>
+            <div key={i} className="group p-8 rounded-3xl border border-slate-800 bg-slate-900/10 hover:border-cyan-400/40 transition-all duration-500">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-2xl">{group.icon}</span>
+                <h3 className="text-sm font-bold text-white uppercase tracking-widest">{group.category}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
                 {group.items.map(skill => (
-                  <span key={skill} className="text-[10px] font-bold text-slate-500 border border-slate-800 px-2 py-1 rounded-md group-hover:text-cyan-400 group-hover:border-cyan-400/20 transition-colors">{skill}</span>
+                  <span key={skill} className="text-xs font-medium text-slate-400 border border-slate-800/50 px-3 py-1.5 rounded-lg group-hover:text-cyan-300 group-hover:border-cyan-400/20 transition-colors">{skill}</span>
                 ))}
               </div>
             </div>
@@ -114,25 +114,25 @@ function App() {
         </div>
       </section>
 
-      {/* 4th: PROJECTS SECTION */}
-      <section className="mb-40">
-        <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50 mb-10">Selected Projects</h2>
-        <div className="grid md:grid-cols-3 gap-10">
+      {/* PROJECTS */}
+      <section className="mb-48">
+        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-12">Selected Projects</h2>
+        <div className="grid md:grid-cols-3 gap-12">
           {PROJECTS.map((p, i) => (
-            <div key={i} className="group flex flex-col justify-between border-t border-slate-800 pt-6 hover:border-cyan-400/50 transition-colors">
+            <div key={i} className="group flex flex-col justify-between border-t-2 border-slate-800 pt-10 hover:border-cyan-400/50 transition-colors duration-500">
               <div>
-                <span className="text-[9px] font-bold text-cyan-400 tracking-widest uppercase">{p.metric}</span>
-                <h3 className="text-xl font-bold text-white mt-2 mb-3">{p.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed mb-6">{p.desc}</p>
+                <span className="text-[10px] font-bold text-cyan-400 tracking-[0.3em] uppercase">{p.metric}</span>
+                <h3 className="text-3xl font-bold text-white mt-4 mb-4 tracking-tight">{p.title}</h3>
+                <p className="text-base text-slate-400 leading-relaxed mb-8 font-light">{p.desc}</p>
               </div>
               <div>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {p.tech.map(t => (
-                    <span key={t} className="text-[9px] font-medium text-slate-500 bg-slate-900 px-2 py-0.5 rounded border border-slate-800 uppercase italic">{t}</span>
+                    <span key={t} className="text-[10px] font-bold text-slate-500 bg-slate-900/80 px-3 py-1 rounded-md border border-slate-800 uppercase tracking-tighter italic">{t}</span>
                   ))}
                 </div>
-                <a href={p.link} target="_blank" rel="noreferrer" className="inline-flex items-center text-[10px] font-bold uppercase tracking-widest text-white hover:text-cyan-400 transition-colors">
-                  View Repository <span className="ml-2">→</span>
+                <a href={p.link} target="_blank" rel="noreferrer" className="inline-flex items-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-cyan-400 transition-all">
+                  Access Code <span className="ml-3 group-hover:translate-x-2 transition-transform">→</span>
                 </a>
               </div>
             </div>
@@ -140,9 +140,24 @@ function App() {
         </div>
       </section>
 
+      {/* NEW CONTACT SECTION */}
+      <section className="mb-20 py-20 border-y border-slate-900 text-center">
+        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-8">Get In Touch</h2>
+        <h3 className="text-3xl md:text-5xl text-white font-bold mb-10 tracking-tighter">Let's build something scalable.</h3>
+        <div className="flex flex-col md:flex-row justify-center gap-6">
+          <a href="mailto:sayaligedam12@gmail.com" className="text-xl text-cyan-400 hover:text-white transition-colors underline decoration-slate-800 underline-offset-8">sayaligedam12@gmail.com</a>
+          <span className="hidden md:block text-slate-800">/</span>
+          <a href="https://www.linkedin.com/in/sayaligedam/" target="_blank" rel="noreferrer" className="text-xl text-slate-400 hover:text-white transition-colors underline decoration-slate-800 underline-offset-8">LinkedIn Profile</a>
+        </div>
+      </section>
+
       {/* FOOTER */}
-      <footer className="mt-40 pt-10 border-t border-slate-900 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span>Boston, MA</span>
+      <footer className="pt-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 flex flex-col md:flex-row justify-between items-center gap-4">
+        <span>Based in Boston, MA</span>
+        <div className="flex gap-8">
+          <a href="https://github.com/Gedam12" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">GitHub</a>
+          <a href="https://www.linkedin.com/in/sayaligedam/" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">LinkedIn</a>
+        </div>
         <span>© 2026 Sayali Gedam</span>
       </footer>
     </div>
