@@ -44,6 +44,15 @@ const EXPERIENCE = [
   }
 ];
 
+const EDUCATION = [
+  {
+    degree: "Master of Science in Computer Science",
+    school: "Boston University", // Update this to your actual school
+    period: "Graduated 2024",
+    details: "Specialized in Artificial Intelligence and Cloud Computing. GPA: 3.8/4.0"
+  }
+];
+
 function App() {
   return (
     <div className="min-h-screen p-6 md:p-20 max-w-6xl mx-auto bg-[#020617]">
@@ -85,6 +94,24 @@ function App() {
           </a>
         </div>
       </header>
+
+      {/* EDUCATION SECTION */}
+      <section className="mb-32">
+        <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50 mb-12">Education</h2>
+        <div className="space-y-12">
+          {EDUCATION.map((edu, i) => (
+            <div key={i} className="flex flex-col md:flex-row gap-4 md:gap-20">
+              <div className="md:w-32 text-[10px] font-bold text-slate-500 uppercase tracking-widest pt-1">{edu.period}</div>
+              <div className="flex-1 border-l border-slate-800 pl-8 relative">
+                <div className="absolute -left-[3px] top-2 w-1.5 h-1.5 rounded-full bg-slate-700"></div>
+                <h3 className="text-xl font-bold text-white tracking-tight">{edu.degree}</h3>
+                <p className="text-slate-400 text-sm mt-2">{edu.school}</p>
+                <p className="text-xs text-slate-500 mt-2 italic">{edu.details}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* PROJECTS SECTION */}
       <section className="mb-32">
