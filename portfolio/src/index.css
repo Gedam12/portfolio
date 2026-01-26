@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-navy: #020617;
+  --color-accent-cyan: #22d3ee;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-dark-navy);
+    color: white;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+.text-glow {
+  text-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+}
+
+.glass-pill {
+  background: rgba(34, 211, 238, 0.05);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  transition: all 0.3s ease;
+}
+
+.download-btn {
+  background: #22d3ee;
+  color: #020617;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
