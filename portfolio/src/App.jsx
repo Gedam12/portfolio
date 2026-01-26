@@ -60,13 +60,16 @@ function App() {
         </div>
       </header>
 
-      {/* SUMMARY */}
-      <section className="mb-48 max-w-4xl">
-        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-8 underline decoration-cyan-500/30 underline-offset-8">Summary</h2>
-        <p className="text-2xl md:text-4xl text-slate-200 leading-[1.2] font-light tracking-tight">
-          Software Engineer specializing in <span className="text-white font-semibold">high-scale backend systems</span> and cloud architecture. MSCS graduate from New England College focused on <span className="text-cyan-400 italic">AI integration</span> and distributed computing.
-        </p>
-      </section>
+      {/* UPDATED SUMMARY SECTION */}
+<section className="mb-48 max-w-4xl">
+  <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-8 underline decoration-cyan-500/30 underline-offset-8">Executive Summary</h2>
+  <p className="text-2xl md:text-4xl text-slate-200 leading-[1.1] font-light tracking-tight">
+    Bridging the gap between <span className="text-white font-semibold italic">enterprise-grade stability</span> and <span className="text-cyan-400 font-semibold">AI innovation</span>. 
+  </p>
+  <p className="mt-8 text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl">
+    With a track record of optimizing systems for <span className="text-white">10M+ daily operations</span> at JPMorgan Chase and architecting AWS migrations at UHG, I bring the discipline of big-tech engineering to modern AI challenges. My MSCS specialization in <span className="text-white">Artificial Intelligence</span> isn't just academic—it's the toolkit I use to build private, scalable, and impactful intelligent systems.
+  </p>
+</section>
 
       {/* JOURNEY */}
       <section className="mb-48">
