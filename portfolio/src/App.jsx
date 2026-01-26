@@ -33,12 +33,41 @@ const SKILLS = [
 ];
 
 const TIMELINE = [
-  { year: "2024", type: "Work", title: "Software Engineer", place: "JPMorgan Chase & Co.", desc: "Scaling high-frequency systems for 10M+ daily operations." },
-  { year: "2023", type: "Study", title: "MS in Computer Science", place: "New England College", desc: "Graduated Dec 2023 | AI & Cloud | GPA 3.8" },
-  { year: "2023", type: "Work", title: "Software Engineer", place: "UnitedHealth Group (UHG)", desc: "Architected cloud-native migrations on AWS." },
-  { year: "2022", type: "Work", title: "Software Engineer", place: "JPMorgan Chase & Co.", desc: "API optimization and microservices refactoring." },
-  { year: "2021", type: "Work", title: "Software Developer Assoc.", place: "R-Financial", desc: "Built Flask/Postgres risk reporting tools." },
-  { year: "2018", type: "Work", title: "Software Developer Assoc.", place: "R-Financial", desc: "Automated spreadsheet workflows." }
+  { 
+    year: "2024 — Present", 
+    type: "Work", 
+    title: "Software Engineer", 
+    place: "JPMorgan Chase & Co.", 
+    desc: "Developing 12+ microservices to process 10M daily transactions. Reduced API response times by 53% and deployment times from 3 hours to 30 minutes." 
+  },
+  { 
+    year: "2023 — 2024", 
+    type: "Work", 
+    title: "Software Engineer", 
+    place: "UnitedHealth Group (UHG)", 
+    desc: "Migrated 6 critical services to AWS, reducing costs by 25%. Improved record delivery time by 60% and automated daily rollouts." 
+  },
+  { 
+    year: "2021 — 2023", 
+    type: "Study", 
+    title: "MS in Computer Science", 
+    place: "New England College", 
+    desc: "Advanced specialization in AI and Cloud Computing. Applied engineering discipline to emerging intelligent systems." 
+  },
+  { 
+    year: "2018 — 2021", 
+    type: "Work", 
+    title: "Software Developer Associate", 
+    place: "R-Financial", 
+    desc: "Built automated risk tools and ETL pipelines. Reduced report generation time by 70% and batch job runtimes by over an hour." 
+  },
+  { 
+    year: "2016 — 2020", 
+    type: "Study", 
+    title: "BE in Electronics Engineering", 
+    place: "GH Raisoni College of Engineering", 
+    desc: "Foundational engineering degree covering hardware-software integration and complex problem-solving." 
+  }
 ];
 
 function App() {
@@ -67,7 +96,7 @@ function App() {
     Bridging the gap between <span className="text-white font-semibold italic">enterprise-grade stability</span> and <span className="text-cyan-400 font-semibold">AI innovation</span>. 
   </p>
   <p className="mt-8 text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl">
-    With a track record of optimizing systems for <span className="text-white">10M+ daily operations</span> at JPMorgan Chase and architecting AWS migrations at UHG, I bring the discipline of big-tech engineering to modern AI challenges. My MSCS specialization in <span className="text-white">Artificial Intelligence</span> isn't just academic—it's the toolkit I use to build private, scalable, and impactful intelligent systems.
+    With a track record of optimizing systems for <span className="text-white">10M+ daily operations</span> at JPMorgan Chase and architecting AWS migrations at UHG, I bring the discipline of big-tech engineering to modern AI challenges. My MSCS specialization in <span className="text-white">Artificial Intelligence</span> isn't just academic, it's the toolkit I use to build private, scalable, and impactful intelligent systems.
   </p>
 </section>
 
