@@ -25,7 +25,7 @@ const PROJECTS = [
 const SKILLS = [
   { category: "Languages", items: ["Python", "Node.js", "SQL", "JavaScript"] },
   { category: "Frameworks", items: ["FastAPI", "Flask", "Express.js", "React"] },
-  { category: "Cloud & DevOps", items: ["AWS", "Docker", "Kubernetes", "CI/CD"] },
+  { category: "AI & Cloud", items: ["LLMs", "Llama 3", "AWS", "Docker", "Kubernetes"] },
   { category: "Databases", items: ["PostgreSQL", "Redis", "MongoDB", "DynamoDB"] }
 ];
 
@@ -114,19 +114,31 @@ function App() {
         </div>
       </section>
 
+      {/* RESTORED SKILLS SECTION */}
+      <section className="mb-40">
+        <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50 mb-12">Stack</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {SKILLS.map((group, i) => (
+            <div key={i}>
+              <h3 className="text-xs font-bold text-white uppercase tracking-widest mb-4 border-b border-slate-800 pb-2">{group.category}</h3>
+              <div className="flex flex-col gap-2">
+                {group.items.map(skill => (
+                  <span key={skill} className="text-sm text-slate-400 hover:text-cyan-400 transition-colors">{skill}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ALTERNATING TIMELINE SECTION */}
       <section className="mb-40">
         <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50 mb-20 text-center">Journey</h2>
-        
         <div className="relative">
-          {/* Central Vertical Line */}
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-slate-800"></div>
-
           <div className="space-y-12">
             {TIMELINE.map((item, i) => (
               <div key={i} className={`flex flex-col md:flex-row items-center w-full ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                
-                {/* Text Block */}
                 <div className="w-full md:w-1/2 flex justify-center md:justify-start px-4 md:px-10">
                   <div className={`p-6 rounded-xl border border-slate-800 bg-slate-900/20 backdrop-blur-sm w-full max-w-md ${i % 2 === 0 ? 'text-left' : 'md:text-right'}`}>
                     <span className="text-[10px] font-black text-cyan-400 tracking-widest uppercase">{item.year} — {item.type}</span>
@@ -135,13 +147,9 @@ function App() {
                     <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
-
-                {/* Vertical Center Dot */}
                 <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center justify-center">
                   <div className={`w-3 h-3 rounded-full border-4 border-[#020617] z-10 ${item.type === 'Work' ? 'bg-cyan-400' : 'bg-white'}`}></div>
                 </div>
-
-                {/* Empty Space for Balance */}
                 <div className="hidden md:block w-1/2"></div>
               </div>
             ))}
