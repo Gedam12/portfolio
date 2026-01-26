@@ -23,10 +23,26 @@ const PROJECTS = [
 ];
 
 const SKILLS = [
-  { category: "Languages", items: ["Python", "Node.js", "SQL", "JavaScript"] },
-  { category: "Frameworks", items: ["FastAPI", "Flask", "Express.js", "React"] },
-  { category: "AI & Cloud", items: ["LLMs", "Llama 3", "AWS", "Docker", "Kubernetes"] },
-  { category: "Databases", items: ["PostgreSQL", "Redis", "MongoDB", "DynamoDB"] }
+  { 
+    category: "AI & Intelligence", 
+    items: ["Llama 3 / LLMs", "Ollama", "Prompt Engineering", "FastAPI AI agents"],
+    icon: "🤖" 
+  },
+  { 
+    category: "Cloud & DevOps", 
+    items: ["AWS (S3, EC2, Lambda)", "Docker", "Kubernetes", "CI/CD Pipelines"],
+    icon: "☁️"
+  },
+  { 
+    category: "Backend & Scale", 
+    items: ["Node.js", "Python (FastAPI/Flask)", "Microservices", "System Design"],
+    icon: "⚙️"
+  },
+  { 
+    category: "Data & Systems", 
+    items: ["PostgreSQL", "Redis", "MongoDB", "RabbitMQ"],
+    icon: "💾"
+  }
 ];
 
 const TIMELINE = [
@@ -115,21 +131,31 @@ function App() {
       </section>
 
       {/* RESTORED SKILLS SECTION */}
-      <section className="mb-40">
-        <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50 mb-12">Stack</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {SKILLS.map((group, i) => (
-            <div key={i}>
-              <h3 className="text-xs font-bold text-white uppercase tracking-widest mb-4 border-b border-slate-800 pb-2">{group.category}</h3>
-              <div className="flex flex-col gap-2">
-                {group.items.map(skill => (
-                  <span key={skill} className="text-sm text-slate-400 hover:text-cyan-400 transition-colors">{skill}</span>
-                ))}
-              </div>
-            </div>
+      {/* UPDATED SKILLS SECTION */}
+<section className="mb-40">
+  <div className="flex items-center gap-4 mb-12">
+    <h2 className="text-[10px] font-black uppercase tracking-[0.3em] text-cyan-500/50">Technical Stack</h2>
+    <div className="h-[1px] flex-grow bg-slate-800"></div>
+  </div>
+
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    {SKILLS.map((group, i) => (
+      <div key={i} className="group p-6 rounded-2xl border border-slate-800 bg-slate-900/10 hover:bg-cyan-400/[0.02] hover:border-cyan-400/30 transition-all duration-500">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="text-xl">{group.icon}</span>
+          <h3 className="text-xs font-bold text-white uppercase tracking-widest">{group.category}</h3>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          {group.items.map(skill => (
+            <span key={skill} className="text-[10px] font-bold text-slate-500 border border-slate-800 px-2 py-1 rounded-md group-hover:text-cyan-400 group-hover:border-cyan-400/20 transition-colors">
+              {skill}
+            </span>
           ))}
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* ALTERNATING TIMELINE SECTION */}
       <section className="mb-40">
