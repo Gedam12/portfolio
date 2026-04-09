@@ -1,199 +1,340 @@
-import React from 'react';
-import myResume from './resume.pdf'; 
+import React from "react";
+import myResume from "./resume.pdf";
 
-const PROJECTS = [
+const projects = [
   {
     title: "Sentinel Intelligence System",
-    metric: "100% PRIVATE AI",
-    desc: "Designed an autonomous monitoring engine using local Llama 3 models. Reclaimed 100GB of disk space.",
+    metric: "Privacy-first AI",
+    description:
+      "Designed an autonomous monitoring engine using local Llama models with a focus on privacy, resilience, and practical workflows.",
     tech: ["Python", "FastAPI", "Ollama", "Llama 3"],
-    link: "https://github.com/Gedam12/Sentinel-Intelligence-System"
+    link: "https://github.com/Gedam12/Sentinel-Intelligence-System",
   },
   {
-    title: "JPMorgan: High-Frequency Engine",
-    metric: "53% LATENCY CUT",
-    desc: "Refactored 12+ microservices handling 10M daily transactions. Optimized Redis and PostgreSQL.",
+    title: "High-Volume Backend Engineering",
+    metric: "Scale + performance",
+    description:
+      "Built and improved backend systems for high-throughput transaction workflows with emphasis on latency, reliability, and deployment efficiency.",
     tech: ["Node.js", "Python", "Redis", "PostgreSQL"],
-    link: "https://github.com/Gedam12/jpm-engine-clone"
+    link: "https://github.com/Gedam12",
   },
   {
-    title: "UHG: HIPAA Cloud Migration",
-    metric: "25% COST SAVINGS",
-    desc: "Migrated 6 critical services to AWS. Reduced record delivery time by 60% while ensuring HIPAA compliance.",
-    tech: ["AWS", "FastAPI", "Docker", "RabbitMQ"],
-    link: "https://github.com/Gedam12/portfolio" 
-  }
+    title: "Cloud Migration Work",
+    metric: "Modernization",
+    description:
+      "Worked on cloud migration and backend modernization efforts with focus on delivery speed, cost awareness, and operational stability.",
+    tech: ["AWS", "Docker", "FastAPI", "CI/CD"],
+    link: "https://github.com/Gedam12",
+  },
 ];
 
-const SKILLS = [
-  { category: "AI & Intelligence", items: ["LLMs", "Llama 3", "Ollama", "Prompt Eng."], icon: "🤖" },
-  { category: "Cloud & DevOps", items: ["AWS", "Docker", "Kubernetes", "CI/CD"], icon: "☁️" },
-  { category: "Backend & Scale", items: ["Node.js", "Python", "FastAPI", "Microservices"], icon: "⚙️" },
-  { category: "Data Systems", items: ["PostgreSQL", "Redis", "MongoDB", "RabbitMQ"], icon: "💾" }
+const skills = [
+  "Python",
+  "Node.js",
+  "React",
+  "FastAPI",
+  "AWS",
+  "Docker",
+  "PostgreSQL",
+  "Redis",
+  "CI/CD",
+  "Microservices",
+  "REST APIs",
+  "Cloud Engineering",
 ];
 
-const TIMELINE = [
-  { 
-    year: "2024 — Present", 
-    type: "Work", 
-    title: "Software Engineer", 
-    place: "JPMorgan Chase & Co.", 
-    desc: "Developing 12+ microservices to process 10M daily transactions. Reduced API response times by 53% and deployment times from 3 hours to 30 minutes." 
+const timeline = [
+  {
+    year: "2025 — Present",
+    title: "Software Engineer",
+    place: "JPMorgan Chase & Co.",
+    description:
+      "Working on backend systems, performance improvements, deployment workflows, and scalable engineering practices.",
   },
-  { 
-    year: "2023 — 2024", 
-    type: "Work", 
-    title: "Software Engineer", 
-    place: "UnitedHealth Group (UHG)", 
-    desc: "Migrated 6 critical services to AWS, reducing costs by 25%. Improved record delivery time by 60% and automated daily rollouts." 
+  {
+    year: "2023 — 2024",
+    title: "Software Engineer",
+    place: "UnitedHealth Group",
+    description:
+      "Contributed to cloud-focused engineering work, backend modernization, and production-ready delivery improvements.",
   },
-  { 
-    year: "2021 — 2023", 
-    type: "Study", 
-    title: "MS in Computer Science", 
-    place: "New England College", 
-    desc: "Advanced specialization in AI and Cloud Computing. Applied engineering discipline to emerging intelligent systems." 
+  {
+    year: "2021 — 2023",
+    title: "M.S. in Computer Science",
+    place: "New England College",
+    description:
+      "Focused on software engineering, AI concepts, and cloud-oriented systems thinking.",
   },
-  { 
-    year: "2018 — 2021", 
-    type: "Work", 
-    title: "Software Developer Associate", 
-    place: "R-Financial", 
-    desc: "Built automated risk tools and ETL pipelines. Reduced report generation time by 70% and batch job runtimes by over an hour." 
+  {
+    year: "2016 — 2020",
+    title: "B.E. in Electronics Engineering",
+    place: "GH Raisoni College of Engineering",
+    description:
+      "Built a strong engineering foundation in systems thinking, problem solving, and technical rigor.",
   },
-  { 
-    year: "2016 — 2020", 
-    type: "Study", 
-    title: "BE in Electronics Engineering", 
-    place: "GH Raisoni College of Engineering", 
-    desc: "Foundational engineering degree covering hardware-software integration and complex problem-solving." 
-  }
 ];
 
-function App() {
+const links = {
+  github: "https://github.com/Gedam12",
+  linkedin: "https://www.linkedin.com/in/sayali-mukund-gedam/",
+  email: "mailto:sayaligedam12@gmail.com",
+};
+
+export default function App() {
   return (
-    <div className="min-h-screen p-6 md:p-20 max-w-6xl mx-auto bg-[#020617]">
-      {/* HEADER */}
-      <header className="mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-        <div>
-          <h1 className="text-5xl md:text-7xl text-white font-bold tracking-tighter">
-            Sayali <span className="text-cyan-400 italic font-light">Gedam</span>
-          </h1>
-          <p className="text-xs font-bold uppercase tracking-[0.5em] text-slate-500 mt-6">
-            Software Engineer // MSCS // 5+ Years Experience
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-4">
-          <a href={myResume} target="_blank" rel="noreferrer" download className="bg-cyan-400 text-[#020617] px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-cyan-400/10">Download CV</a>
-          <a href="mailto:sayaligedam12@gmail.com" className="border border-slate-700 bg-slate-900/50 px-8 py-4 rounded-full text-xs font-black uppercase tracking-widest text-slate-300 hover:text-cyan-400 hover:border-cyan-400/30 transition-all">Contact</a>
+    <div className="min-h-screen bg-[#07111f] text-slate-100 selection:bg-cyan-300 selection:text-slate-900">
+      <div className="pointer-events-none fixed inset-0 -z-10">
+        <div className="absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-blue-500/10 blur-3xl" />
+      </div>
+
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#07111f]/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+          <a href="#home" className="text-lg font-semibold tracking-wide text-white">
+            Sayali Gedam
+          </a>
+
+          <nav className="hidden items-center gap-6 text-sm text-slate-300 md:flex">
+            <a href="#about" className="transition hover:text-cyan-300">About</a>
+            <a href="#skills" className="transition hover:text-cyan-300">Skills</a>
+            <a href="#experience" className="transition hover:text-cyan-300">Experience</a>
+            <a href="#projects" className="transition hover:text-cyan-300">Projects</a>
+            <a href="#contact" className="transition hover:text-cyan-300">Contact</a>
+          </nav>
         </div>
       </header>
 
-      {/* UPDATED SUMMARY SECTION */}
-<section className="mb-48 max-w-4xl">
-  <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-8 underline decoration-cyan-500/30 underline-offset-8">Executive Summary</h2>
-  <p className="text-2xl md:text-4xl text-slate-200 leading-[1.1] font-light tracking-tight">
-    Bridging the gap between <span className="text-white font-semibold italic">enterprise-grade stability</span> and <span className="text-cyan-400 font-semibold">AI innovation</span>. 
-  </p>
-  <p className="mt-8 text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl">
-    With a track record of optimizing systems for <span className="text-white">10M+ daily operations</span> at JPMorgan Chase and architecting AWS migrations at UHG, I bring the discipline of big-tech engineering to modern AI challenges. My MSCS specialization in <span className="text-white">Artificial Intelligence</span> isn't just academic, it's the toolkit I use to build private, scalable, and impactful intelligent systems.
-  </p>
-</section>
+      <main>
+        <section
+          id="home"
+          className="mx-auto grid max-w-6xl gap-12 px-6 pb-20 pt-20 md:grid-cols-[1.2fr_0.8fr] md:items-center md:pb-28 md:pt-28"
+        >
+          <div>
+            <span className="inline-flex rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-1 text-sm text-cyan-200">
+              Software Engineer • Backend • Cloud • AI-ready
+            </span>
 
-      {/* JOURNEY */}
-      <section className="mb-48">
-        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-20 text-center">Professional Journey</h2>
-        <div className="relative">
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-[1px] bg-slate-800"></div>
-          <div className="space-y-16">
-            {TIMELINE.map((item, i) => (
-              <div key={i} className={`flex flex-col md:flex-row items-center w-full ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                <div className="w-full md:w-1/2 flex justify-center md:justify-start px-4 md:px-12">
-                  <div className={`p-8 rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-md w-full max-w-md ${i % 2 === 0 ? 'text-left' : 'md:text-right'}`}>
-                    <span className="text-[10px] font-black text-cyan-400 tracking-[0.2em] uppercase">{item.year} — {item.type}</span>
-                    <h3 className="text-2xl font-bold text-white mt-2 leading-tight">{item.title}</h3>
-                    <p className="text-slate-400 text-sm font-bold uppercase mt-1 mb-4">{item.place}</p>
-                    <p className="text-base text-slate-500 leading-relaxed font-light">{item.desc}</p>
+            <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-tight text-white md:text-6xl">
+              Simple, scalable engineering with a clean modern portfolio.
+            </h1>
+
+            <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300 md:text-lg">
+              I build backend systems, APIs, and cloud-first software with a strong
+              focus on reliability, performance, and maintainability. I also enjoy
+              shaping practical AI-driven products that feel useful, not noisy.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                className="rounded-2xl bg-cyan-300 px-5 py-3 font-medium text-slate-950 transition hover:-translate-y-0.5"
+              >
+                View Projects
+              </a>
+
+              <a
+                href={myResume}
+                download
+                className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white transition hover:border-cyan-300 hover:text-cyan-200"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-2xl shadow-black/20 backdrop-blur-xl">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <StatCard value="5+" label="Years experience" />
+              <StatCard value="Backend" label="Core focus" />
+              <StatCard value="Cloud" label="Production mindset" />
+              <StatCard value="AI" label="Growing specialty" />
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="mx-auto max-w-6xl px-6 py-16">
+          <SectionHeading
+            eyebrow="About"
+            title="A portfolio that feels calm, clear, and strong."
+          />
+          <div className="max-w-3xl rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+            <p className="leading-8 text-slate-300">
+              My work has focused on scalable backend engineering, cloud systems,
+              performance improvements, and reliable delivery. I wanted this portfolio
+              to reflect the same mindset: clean structure, better readability, and a
+              more polished visual experience without making it over-designed.
+            </p>
+          </div>
+        </section>
+
+        <section id="skills" className="mx-auto max-w-6xl px-6 py-16">
+          <SectionHeading
+            eyebrow="Skills"
+            title="Core tools and technologies I enjoy working with."
+          />
+          <div className="flex flex-wrap gap-3">
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-100"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section id="experience" className="mx-auto max-w-6xl px-6 py-16">
+          <SectionHeading
+            eyebrow="Experience"
+            title="A tighter timeline with only the most important details."
+          />
+
+          <div className="relative space-y-6 before:absolute before:left-[11px] before:top-2 before:h-[calc(100%-1rem)] before:w-px before:bg-white/10 md:before:left-1/2">
+            {timeline.map((item, index) => (
+              <div
+                key={`${item.year}-${item.title}`}
+                className={`relative md:grid md:grid-cols-2 md:gap-10 ${
+                  index % 2 === 0 ? "" : ""
+                }`}
+              >
+                <div className={`hidden md:block ${index % 2 === 0 ? "" : "md:order-2"}`}>
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                    <p className="text-sm text-cyan-200">{item.year}</p>
+                    <h3 className="mt-2 text-xl font-semibold text-white">{item.title}</h3>
+                    <p className="mt-1 text-slate-300">{item.place}</p>
+                    <p className="mt-4 leading-7 text-slate-400">{item.description}</p>
                   </div>
                 </div>
-                <div className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center justify-center">
-                  <div className={`w-4 h-4 rounded-full border-4 border-[#020617] z-10 ${item.type === 'Work' ? 'bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)]' : 'bg-white shadow-[0_0_15px_rgba(255,255,255,0.3)]'}`}></div>
+
+                <div className="absolute left-0 top-6 h-6 w-6 rounded-full border-4 border-[#07111f] bg-cyan-300 md:left-1/2 md:-translate-x-1/2" />
+
+                <div className="pl-10 md:hidden">
+                  <div className="rounded-[24px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                    <p className="text-sm text-cyan-200">{item.year}</p>
+                    <h3 className="mt-2 text-xl font-semibold text-white">{item.title}</h3>
+                    <p className="mt-1 text-slate-300">{item.place}</p>
+                    <p className="mt-4 leading-7 text-slate-400">{item.description}</p>
+                  </div>
                 </div>
-                <div className="hidden md:block w-1/2"></div>
+
+                <div className={`hidden md:block ${index % 2 === 0 ? "md:order-2" : ""}`} />
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* SKILLS */}
-      <section className="mb-48">
-        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-16">Technical Stack</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {SKILLS.map((group, i) => (
-            <div key={i} className="group p-8 rounded-3xl border border-slate-800 bg-slate-900/10 hover:border-cyan-400/40 transition-all duration-500">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="text-2xl">{group.icon}</span>
-                <h3 className="text-sm font-bold text-white uppercase tracking-widest">{group.category}</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {group.items.map(skill => (
-                  <span key={skill} className="text-xs font-medium text-slate-400 border border-slate-800/50 px-3 py-1.5 rounded-lg group-hover:text-cyan-300 group-hover:border-cyan-400/20 transition-colors">{skill}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        <section id="projects" className="mx-auto max-w-6xl px-6 py-16">
+          <SectionHeading
+            eyebrow="Projects"
+            title="Selected work presented in a cleaner, more modern way."
+          />
 
-      {/* PROJECTS */}
-      <section className="mb-48">
-        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-12">Selected Projects</h2>
-        <div className="grid md:grid-cols-3 gap-12">
-          {PROJECTS.map((p, i) => (
-            <div key={i} className="group flex flex-col justify-between border-t-2 border-slate-800 pt-10 hover:border-cyan-400/50 transition-colors duration-500">
-              <div>
-                <span className="text-[10px] font-bold text-cyan-400 tracking-[0.3em] uppercase">{p.metric}</span>
-                <h3 className="text-3xl font-bold text-white mt-4 mb-4 tracking-tight">{p.title}</h3>
-                <p className="text-base text-slate-400 leading-relaxed mb-8 font-light">{p.desc}</p>
-              </div>
-              <div>
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {p.tech.map(t => (
-                    <span key={t} className="text-[10px] font-bold text-slate-500 bg-slate-900/80 px-3 py-1 rounded-md border border-slate-800 uppercase tracking-tighter italic">{t}</span>
+          <div className="grid gap-6 md:grid-cols-3">
+            {projects.map((project) => (
+              <article
+                key={project.title}
+                className="group rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-300/30 hover:bg-white/[0.07]"
+              >
+                <p className="text-sm uppercase tracking-[0.18em] text-cyan-200/80">
+                  {project.metric}
+                </p>
+
+                <h3 className="mt-3 text-xl font-semibold text-white">
+                  {project.title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  {project.description}
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {project.tech.map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full bg-slate-950/70 px-3 py-1 text-xs text-slate-300"
+                    >
+                      {item}
+                    </span>
                   ))}
                 </div>
-                <a href={p.link} target="_blank" rel="noreferrer" className="inline-flex items-center text-xs font-bold uppercase tracking-[0.2em] text-white hover:text-cyan-400 transition-all">
-                  Access Code <span className="ml-3 group-hover:translate-x-2 transition-transform">→</span>
+
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex items-center text-sm font-medium text-cyan-200 transition group-hover:text-cyan-100"
+                >
+                  View Code →
                 </a>
-              </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="mx-auto max-w-6xl px-6 py-16">
+          <div className="rounded-[32px] border border-white/10 bg-gradient-to-br from-cyan-400/10 via-white/5 to-blue-500/10 p-8 backdrop-blur-xl md:p-10">
+            <h2 className="text-3xl font-bold text-white md:text-4xl">
+              Let’s build something meaningful.
+            </h2>
+            <p className="mt-4 max-w-2xl leading-8 text-slate-300">
+              I’m open to software engineering opportunities across backend, cloud,
+              platform, and AI-focused product work.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href={links.email}
+                className="rounded-2xl bg-cyan-300 px-5 py-3 font-medium text-slate-950 transition hover:-translate-y-0.5"
+              >
+                Email Me
+              </a>
+              <a
+                href={links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white transition hover:border-cyan-300 hover:text-cyan-200"
+              >
+                GitHub
+              </a>
+              <a
+                href={links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-2xl border border-white/15 px-5 py-3 font-medium text-white transition hover:border-cyan-300 hover:text-cyan-200"
+              >
+                LinkedIn
+              </a>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
+      </main>
 
-      {/* NEW CONTACT SECTION */}
-      <section className="mb-20 py-20 border-y border-slate-900 text-center">
-        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-cyan-500/50 mb-8">Get In Touch</h2>
-        <h3 className="text-3xl md:text-5xl text-white font-bold mb-10 tracking-tighter">Let's build something scalable.</h3>
-        <div className="flex flex-col md:flex-row justify-center gap-6">
-          <a href="mailto:sayaligedam12@gmail.com" className="text-xl text-cyan-400 hover:text-white transition-colors underline decoration-slate-800 underline-offset-8">sayaligedam12@gmail.com</a>
-          <span className="hidden md:block text-slate-800">/</span>
-          <a href="https://www.linkedin.com/in/sayaligedam/" target="_blank" rel="noreferrer" className="text-xl text-slate-400 hover:text-white transition-colors underline decoration-slate-800 underline-offset-8">LinkedIn Profile</a>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer className="pt-10 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 flex flex-col md:flex-row justify-between items-center gap-4">
-        <span>Based in Boston, MA</span>
-        <div className="flex gap-8">
-          <a href="https://github.com/Gedam12" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">GitHub</a>
-          <a href="https://www.linkedin.com/in/sayaligedam/" target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">LinkedIn</a>
-        </div>
-        <span>© 2026 Sayali Gedam</span>
+      <footer className="border-t border-white/10 px-6 py-8 text-center text-sm text-slate-400">
+        © 2026 Sayali Gedam
       </footer>
     </div>
   );
 }
 
-export default App;
+function SectionHeading({ eyebrow, title }) {
+  return (
+    <div className="mb-8">
+      <p className="text-sm font-medium uppercase tracking-[0.2em] text-cyan-200">
+        {eyebrow}
+      </p>
+      <h2 className="mt-2 max-w-3xl text-3xl font-bold leading-tight text-white md:text-4xl">
+        {title}
+      </h2>
+    </div>
+  );
+}
+
+function StatCard({ value, label }) {
+  return (
+    <div className="rounded-3xl border border-white/10 bg-slate-950/60 p-5">
+      <p className="text-2xl font-bold text-white">{value}</p>
+      <p className="mt-1 text-sm text-slate-400">{label}</p>
+    </div>
+  );
+}
