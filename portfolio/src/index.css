@@ -6,7 +6,7 @@ html {
 
 body {
   margin: 0;
-  background: #000;
+  background: #020617;
   color: #f8fafc;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
@@ -22,66 +22,91 @@ a {
   text-decoration: none;
 }
 
-.star {
-  border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.95);
-  animation: twinkle 3.6s ease-in-out infinite;
-}
-
-.star-small {
-  width: 3px;
-  height: 3px;
-  opacity: 0.75;
-}
-
-.star-medium {
-  width: 4px;
-  height: 4px;
-  opacity: 0.9;
-}
-
-.star-large {
-  width: 6px;
-  height: 6px;
-  opacity: 1;
-}
-
-.orb {
-  opacity: 0.5;
-  animation: floatOrb 10s ease-in-out infinite;
-}
-
-.orb-cyan {
-  background: rgba(34, 211, 238, 0.22);
-}
-
-.orb-purple {
-  background: rgba(168, 85, 247, 0.2);
-  animation-delay: 1.5s;
-}
-
-.orb-blue {
-  background: rgba(59, 130, 246, 0.2);
-  animation-delay: 3s;
-}
-
-@keyframes twinkle {
-  0%, 100% {
-    opacity: 0.35;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.35);
-  }
-}
-
-@keyframes floatOrb {
+@keyframes floatSlow {
   0%, 100% {
     transform: translateY(0px) translateX(0px);
   }
   50% {
-    transform: translateY(-16px) translateX(10px);
+    transform: translateY(-16px) translateX(8px);
   }
+}
+
+@keyframes floatMedium {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+}
+
+@keyframes timelineGlow {
+  0% {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, 0%);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+}
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bgDrift {
+  0% {
+    transform: scale(1.04) translate3d(0px, 0px, 0px);
+  }
+  25% {
+    transform: scale(1.07) translate3d(-10px, -8px, 0px);
+  }
+  50% {
+    transform: scale(1.1) translate3d(8px, -12px, 0px);
+  }
+  75% {
+    transform: scale(1.07) translate3d(12px, 6px, 0px);
+  }
+  100% {
+    transform: scale(1.04) translate3d(0px, 0px, 0px);
+  }
+}
+
+.animate-floatSlow {
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+.animate-floatMedium {
+  animation: floatMedium 7s ease-in-out infinite;
+}
+
+.animate-timelineGlow {
+  animation: timelineGlow 4s linear infinite;
+}
+
+.animate-toastIn {
+  animation: toastIn 0.35s ease-out;
+}
+
+.animated-bg {
+  animation: bgDrift 28s ease-in-out infinite;
+  will-change: transform;
 }
