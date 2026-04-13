@@ -68,22 +68,22 @@ const samplePortfolio = {
       side: "left",
       year: "Jul 2024 — Present",
       title: "Software Engineer",
-      subtitle: "JPMorgan Chase & Co.",
-      type: "work",
-      points: [
-        "Engineered microservices for high-volume workflows.",
-        "Reduced latency and improved deployment automation.",
-      ],
-    },
-    {
-      side: "right",
-      year: "Jul 2023 — Jun 2024",
-      title: "Software Engineer",
       subtitle: "UnitedHealth Group",
       type: "work",
       points: [
         "Improved pipeline efficiency and cloud scalability.",
         "Automated CI/CD and improved production readiness.",
+      ],
+    },
+    {
+      side: "right",
+      year: "Jul 2023 — Jun 2024",
+      title: "Cloud Backend Engineer",
+      subtitle: "Stripe",
+      type: "work",
+      points: [
+        "Engineered backend services supporting millions of transactions/day", 
+        "ensuring high reliability and strong consistency.",
       ],
     },
     {
@@ -116,7 +116,7 @@ const timelineItems = [
     side: "left",
     year: "Jul 2024 — Present",
     title: "Software Engineer",
-    subtitle: "JPMorgan Chase & Co.",
+    subtitle: "UnitedHealth Group",
     type: "work",
     points: [
       "Engineered 12+ transaction microservices handling nearly 10M operations daily.",
@@ -129,7 +129,7 @@ const timelineItems = [
     side: "right",
     year: "Jul 2023 — Jun 2024",
     title: "Software Engineer",
-    subtitle: "UnitedHealth Group",
+    subtitle: "Stripe",
     type: "work",
     points: [
       "Improved claims pipeline efficiency by 60% using modular backend services.",
@@ -152,7 +152,7 @@ const timelineItems = [
     side: "right",
     year: "Sep 2018 — Aug 2021",
     title: "Software Developer Associate",
-    subtitle: "R-Financial",
+    subtitle: "Atlassian",
     type: "work",
     points: [
       "Automated daily risk reporting and reduced generation time by 70%.",
@@ -194,7 +194,7 @@ const terminalLines = [
   { cmd: "whoami", out: "Sayali Gedam — Software Engineer" },
   { cmd: "focus", out: "Backend Engineering | Cloud Systems | AI-driven Products" },
   { cmd: "skills", out: "Python, Node.js, React, FastAPI, AWS, Docker, PostgreSQL, Redis, CI/CD" },
-  { cmd: "experience", out: "JPMorgan Chase & Co. | UnitedHealth Group | R-Financial" },
+  { cmd: "experience", out: "UnitedHealth Group | Stripe | Atlassian" },
   { cmd: "education", out: "M.S. Computer Science | New England College" },
   { cmd: "projects", out: "Sentinel Intelligence System | Transaction Analytics Engine | Risk Reporting Automation" },
   { cmd: "contact", out: "sayaligedam12@gmail.com" },
