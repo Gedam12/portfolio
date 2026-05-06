@@ -1,4 +1,3 @@
-import PortfolioPlayground from "./components/PortfolioPlayground";
 import React, { useEffect, useRef, useState } from "react";
 import techBg from "./assets/tech-bg.png";
 
@@ -443,10 +442,6 @@ reliability.
             ))}
           </div>
         </section>
-
-        <section id="playground" className="mx-auto max-w-6xl px-6 py-20">
-  <PortfolioPlayground />
-</section>
 
         <section id="contact" className="mx-auto max-w-6xl px-6 py-16">
           <div className="rounded-[32px] border border-white/10 bg-slate-950/35 p-8 backdrop-blur-md md:p-10">

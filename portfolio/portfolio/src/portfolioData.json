@@ -1,0 +1,23 @@
+{
+  "name": "Sayali Gedam",
+  "title": "Software Engineer // MSCS // 5+ Years Experience",
+  "summary": {
+    "heading": "Executive Summary",
+    "main": "Engineering scalable resilience for world-class financial and healthcare systems.",
+    "sub": "Specializing in high-frequency backend architectures and cloud-native migrations. MSCS graduate from New England College focused on AI integration."
+  },
+  "contact": {
+    "email": "sayaligedam12@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/sayaligedam/",
+    "github": "https://github.com/Gedam12",
+    "location": "Boston, MA"
+  },
+  "skills": [
+    { "category": "AI & Intelligence", "items": ["LLMs", "Llama 3", "Ollama", "Prompt Eng."], "icon": "🤖" },
+    { "category": "Cloud & DevOps", "items": ["AWS", "Docker", "Kubernetes", "CI/CD"], "icon": "☁️" },
+    { "category": "Backend & Scale", "items": ["Node.js", "Python", "FastAPI", "Microservices"], "icon": "⚙️" },
+    { "category": "Data Systems", "items": ["PostgreSQL", "Redis", "MongoDB", "RabbitMQ"], "icon": "💾" }
+  ],
+  "timeline": [
+    { "year": "2024 — Pres", "type": "Work", "title": "Software Engineer", "place": "JPMorgan Chase & Co.", "desc": "Scaling 12+ microservices for 10M daily operations." },
+    { "year": "2023 — 2024", "type": "Work", "title": "Software Engineer", "place": "UnitedHealth Group (UHG)", "desc": "Migrated 6 critical services to AWS, reducing costs by 2
