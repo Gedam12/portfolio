@@ -1,3 +1,4 @@
+import PortfolioPlayground from "./components/PortfolioPlayground";
 import React, { useEffect, useRef, useState } from "react";
 import techBg from "./assets/tech-bg.png";
 
@@ -39,12 +40,84 @@ const buildStack = [
   { name: "Netlify", icon: SiNetlify, color: "text-emerald-300" },
 ];
 
+const samplePortfolio = {
+  name: "Sayali Gedam",
+  role: "Software Engineer • Backend • Cloud • AI",
+  about:
+    "Backend engineer focused on APIs, cloud systems, and practical AI-driven products that are reliable, performant, and production-ready.",
+  email: "sayaligedam12@gmail.com",
+  github: "https://github.com/Gedam12",
+  linkedin: "https://www.linkedin.com/in/sayali-mukund-gedam/",
+  stats: {
+    years: 5,
+    focus: "Backend",
+    mindset: "Cloud",
+    specialty: "AI",
+  },
+  skills: [
+    "Python",
+    "Node.js",
+    "React",
+    "FastAPI",
+    "AWS",
+    "Docker",
+    "PostgreSQL",
+    "Redis",
+  ],
+  timeline: [
+    {
+      side: "left",
+      year: "Jul 2024 — Present",
+      title: "Software Engineer",
+      subtitle: "UnitedHealth Group",
+      type: "work",
+      points: [
+        "Improved pipeline efficiency and cloud scalability.",
+        "Automated CI/CD and improved production readiness.",
+      ],
+    },
+    {
+      side: "right",
+      year: "Jul 2023 — Jun 2024",
+      title: "Cloud Backend Engineer",
+      subtitle: "Stripe",
+      type: "work",
+      points: [
+        "Engineered backend services supporting millions of transactions/day", 
+        "ensuring high reliability and strong consistency.",
+      ],
+    },
+    {
+      side: "left",
+      year: "Sep 2021 — Dec 2023",
+      title: "Master’s in Computer Science",
+      subtitle: "New England College",
+      type: "education",
+      points: ["Focused on software engineering and backend systems."],
+    },
+  ],
+  projects: [
+    {
+      title: "Sentinel Intelligence System",
+      desc: "A privacy-first local AI monitoring and notification platform.",
+    },
+    {
+      title: "Transaction Analytics Engine",
+      desc: "A high-volume backend system optimized for latency and observability.",
+    },
+    {
+      title: "Portfolio Builder",
+      desc: "A student-friendly portfolio generator using one design template.",
+    },
+  ],
+};
+
 const timelineItems = [
   {
     side: "left",
     year: "Jul 2024 — Present",
     title: "Software Engineer",
-    subtitle: "JPMorgan Chase & Co.",
+    subtitle: "UnitedHealth Group",
     type: "work",
     points: [
       "Engineered 12+ transaction microservices handling nearly 10M operations daily.",
@@ -57,7 +130,7 @@ const timelineItems = [
     side: "right",
     year: "Jul 2023 — Jun 2024",
     title: "Software Engineer",
-    subtitle: "UnitedHealth Group",
+    subtitle: "Stripe",
     type: "work",
     points: [
       "Improved claims pipeline efficiency by 60% using modular backend services.",
@@ -80,7 +153,7 @@ const timelineItems = [
     side: "right",
     year: "Sep 2018 — Aug 2021",
     title: "Software Developer Associate",
-    subtitle: "R-Financial",
+    subtitle: "Atlassian",
     type: "work",
     points: [
       "Automated daily risk reporting and reduced generation time by 70%.",
@@ -122,7 +195,7 @@ const terminalLines = [
   { cmd: "whoami", out: "Sayali Gedam — Software Engineer" },
   { cmd: "focus", out: "Backend Engineering | Cloud Systems | AI-driven Products" },
   { cmd: "skills", out: "Python, Node.js, React, FastAPI, AWS, Docker, PostgreSQL, Redis, CI/CD" },
-  { cmd: "experience", out: "JPMorgan Chase & Co. | UnitedHealth Group | R-Financial" },
+  { cmd: "experience", out: "UnitedHealth Group | Stripe | Atlassian" },
   { cmd: "education", out: "M.S. Computer Science | New England College" },
   { cmd: "projects", out: "Sentinel Intelligence System | Transaction Analytics Engine | Risk Reporting Automation" },
   { cmd: "contact", out: "sayaligedam12@gmail.com" },
@@ -370,6 +443,10 @@ reliability.
             ))}
           </div>
         </section>
+
+        <section id="playground" className="mx-auto max-w-6xl px-6 py-20">
+  <PortfolioPlayground />
+</section>
 
         <section id="contact" className="mx-auto max-w-6xl px-6 py-16">
           <div className="rounded-[32px] border border-white/10 bg-slate-950/35 p-8 backdrop-blur-md md:p-10">
